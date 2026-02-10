@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Alerts</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="container">
+  <h2>All Alerts</h2>
+
+  <!-- 🔍 Search box -->
+  <input type="text" id="searchInput" placeholder="Search by location">
+
+  <button onclick="searchAlerts()" style="margin-top:10px;">Search</button>
+  <button onclick="loadAlerts()" style="margin-top:10px;background:#999;">Show All</button>
+
+  <div id="alertsList"></div>
+</div>
+
+<script type="module" src="view-alerts.js"></script>
+</body>
+</html>
