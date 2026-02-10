@@ -3,21 +3,71 @@
 <head>
   <title>All Alerts</title>
   <link rel="stylesheet" href="login.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 40px;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <button onclick="window.history.back()" class="back-btn">←</button>
-  <h2>All Alerts</h2>
+<div class="main-content">
+  <div class="container">
+    <button onclick="window.history.back()" class="back-btn">←</button>
+    <h2>All Alerts</h2>
 
-  <!-- 🔍 Search box -->
-  <input type="text" id="searchInput" placeholder="Search by location">
+    <!-- 🔍 Search box -->
+    <input type="text" id="searchInput" placeholder="Search by location">
 
-  <button onclick="searchAlerts()" style="margin-top:10px;">Search</button>
-  <button onclick="loadAlerts()" style="margin-top:10px;background:#999;">Show All</button>
+    <button onclick="searchAlerts()" style="margin-top:10px;">Search</button>
+    <button onclick="loadAlerts()" style="margin-top:10px;background:#999;">Show All</button>
 
-  <div id="alertsList"></div>
+    <div id="alertsList"></div>
+  </div>
 </div>
+
+<footer class="footer">
+  <p class="footer-title"><strong>Navio</strong> - Smart Travel Planning Platform</p>
+  <p class="footer-copy">© 2026 Navio. All rights reserved.</p>
+</footer>
 
 <script type="module" src="view-alerts.js"></script>
 </body>

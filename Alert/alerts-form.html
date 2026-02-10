@@ -3,26 +3,73 @@
 <head>
   <title>Alerts</title>
   <link rel="stylesheet" href="login.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer-title {
+      font-size: 14px;
+      color: #666;
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: #999;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <button onclick="window.history.back()" class="back-btn">←</button>
-  <h2>Alerts</h2>
+<div class="main-content">
+  <div class="container">
+    <button onclick="window.history.back()" class="back-btn">←</button>
+    <h2>Alerts</h2>
 
-  <form id="alertForm">
+    <form id="alertForm">
+      <input type="text" id="location" placeholder="Location" required>
 
-    <input type="text" id="location" placeholder="Location" required>
+      <textarea id="details" placeholder="Enter details..."
+      style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #ddd;height:120px;"></textarea>
 
-    <textarea id="details" placeholder="Enter details..."
-    style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #ddd;height:120px;"></textarea>
+      <button type="submit">Submit</button>
+    </form>
 
-    <button type="submit">Submit</button>
-
-  </form>
-
-  <p id="msg"></p>
+    <p id="msg"></p>
+  </div>
 </div>
+
+<footer class="footer">
+  <p class="footer-title"><strong>Navio</strong> - Smart Travel Planning Platform</p>
+  <p class="footer-copy">© 2026 Navio. All rights reserved.</p>
+</footer>
 
 <script type="module" src="alerts-form.js"></script>
 </body>

@@ -5,15 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Navio | Home</title>
 
-  <!-- =======================
-       GOOGLE FONT (CLEAN + MODERN)
-       ======================= -->
+  <!-- GOOGLE FONT -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* =======================
-       GLOBAL STYLES
-       ======================= */
     * {
       margin: 0;
       padding: 0;
@@ -22,18 +17,16 @@
     }
 
     body {
-      background: linear-gradient(135deg, #6a5acd, #ff8c94);
+      background: linear-gradient(135deg, rgba(106, 90, 205, 0.7), rgba(255, 140, 148, 0.7)), url('images/bgimg.jpg') center/cover no-repeat fixed;
       min-height: 100vh;
       color: #333;
     }
 
-    /* =======================
-       SLIDE MENU (LEFT TO RIGHT)
-       ======================= */
+    /* SLIDE MENU */
     .side-menu {
       position: fixed;
       top: 0;
-      left: -260px; /* hidden by default */
+      left: -260px;
       width: 260px;
       height: 100vh;
       background: rgba(255,255,255,0.95);
@@ -47,20 +40,17 @@
       left: 0;
     }
 
-    /* Placeholder text for menu */
     .side-menu h3 {
       margin-bottom: 20px;
       font-weight: 500;
     }
 
-    /* Menu items container */
     .menu-items {
       display: flex;
       flex-direction: column;
       gap: 15px;
     }
 
-    /* Individual menu item */
     .menu-item {
       display: flex;
       align-items: center;
@@ -86,9 +76,7 @@
       font-size: 20px;
     }
 
-    /* =======================
-       NAVBAR
-       ======================= */
+    /* NAVBAR */
     .navbar {
       display: flex;
       align-items: center;
@@ -98,28 +86,24 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Left side: Menu + Navio */
     .nav-left {
       display: flex;
       align-items: center;
       gap: 15px;
     }
 
-    /* Menu icon (not hamburger) */
     .menu-icon {
       font-size: 22px;
       cursor: pointer;
       user-select: none;
     }
 
-    /* Navio button */
     .logo {
       font-size: 22px;
       font-weight: 600;
       cursor: pointer;
     }
 
-    /* Right side buttons */
     .nav-right {
       display: flex;
       gap: 15px;
@@ -134,7 +118,6 @@
       font-weight: 500;
     }
 
-    /* User icon styles */
     .user-icon {
       width: 40px;
       height: 40px;
@@ -190,41 +173,191 @@
       background: #ffebee;
     }
 
-    /* =======================
-       SEARCH BAR
-       ======================= */
-    .search-container {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
+    /* SECTION HEADER */
+    .section-header {
+      margin: 40px 0 30px;
     }
 
-    .search-bar {
-      width: 70%;
-      max-width: 700px;
-      padding: 14px 20px;
-      border-radius: 30px;
+    .section-header h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+    }
+
+    /* INFINITE SLIDER */
+    .slider-wrapper {
+      overflow: hidden;
+      width: 100%;
+      margin: 30px 0;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 25px;
+      width: max-content;
+      animation: scrollLeft 60s linear infinite;
+    }
+
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Seamless infinite scroll animation */
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* DESTINATION CARD */
+    .trip-card {
+      min-width: 320px;
+      max-width: 320px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .trip-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .trip-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-info h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .card-info p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    /* VISIT BUTTON - HIDDEN BY DEFAULT */
+    .visit-btn {
+      display: none;
+      width: calc(100% - 40px);
+      margin: 0 20px;
+      padding: 12px 0;
       border: none;
-      outline: none;
+      background: linear-gradient(135deg, #ff8c00 0%, #ff6f00 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+      position: relative;
+      z-index: 10;
+    }
+
+    .visit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+    }
+
+    /* SHOW BUTTON ON CARD HOVER */
+    .trip-card:hover .visit-btn {
+      display: block;
+    }
+
+    /* When card is active, change button text */
+    .trip-card.active .visit-btn::after {
+      content: ' ▲';
+    }
+
+    /* ITINERARY BOX */
+    .itinerary-box {
+      display: none;
+      padding: 20px;
+      border-radius: 12px;
+      background: rgba(248, 249, 250, 0.95);
+      backdrop-filter: blur(8px);
+      font-size: 13px;
+      text-align: left;
+      line-height: 1.6;
+      max-height: 400px;
+      overflow-y: auto;
+      animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        max-height: 0;
+      }
+      to {
+        opacity: 1;
+        max-height: 400px;
+      }
+    }
+
+    .itinerary-box h4 {
+      margin-bottom: 10px;
+      color: #333;
       font-size: 16px;
     }
 
-    /* =======================
-       CARDS SECTION
-       ======================= */
+    .itinerary-box pre {
+      white-space: pre-wrap;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Show itinerary when card is active */
+    .trip-card.active .itinerary-box {
+      display: block;
+    }
+
+    /* Expand card height when active */
+    .trip-card.active {
+      min-height: auto;
+    }
+
+    /* CARDS CONTAINER */
     .cards-container {
       display: flex;
-      flex-direction: column; /* stacked vertically */
+      flex-direction: column;
       gap: 20px;
       padding: 0 40px 40px;
     }
 
     .card {
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
       border-radius: 20px;
       padding: 30px;
-      min-height: 160px; /* flexible height */
+      min-height: 160px;
       transition: transform 0.2s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
 
     .card:hover {
@@ -236,298 +369,198 @@
       margin-bottom: 10px;
     }
 
-    /* =======================
-   INFINITE SLIDER STYLES
-   ======================= */
+    .custom-card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
 
-.slider-wrapper {
-  overflow: hidden;
-  width: 100%;
-  margin-top: 15px;
-}
+    .trip-tags span {
+      display: inline-block;
+      margin: 8px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      font-size: 14px;
+    }
 
-.slider-track {
-  display: flex;
-  gap: 20px;
-  width: max-content;
-  animation: scrollLeft 40s linear infinite;
-}
+    .custom-card button {
+      margin-top: 25px;
+      padding: 14px 32px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #8e6ddf, #f18bbf);
+    }
 
-.slider-track:hover {
-  animation-play-state: paused;
-}
+    .how-it-works {
+      background: rgba(162, 47, 112, 0.7);
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin: 50px 0;
+      backdrop-filter: blur(10px);
+    }
 
-/* Smooth infinite movement */
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
+    .how-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
 
-/* Trip card */
-.trip-card {
-  min-width: 260px;
-  background: white;
-  border-radius: 18px;
-  padding: 15px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
+    .how-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+    }
 
-.trip-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 14px;
-}
+    .how-header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
 
-.trip-card h3 {
-  margin: 10px 0 5px;
-}
+    .steps-container {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-.trip-card p {
-  font-size: 14px;
-  color: #555;
-}
+    .step-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 35px 25px;
+      width: 260px;
+      position: relative;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
 
-/* =======================
-   ITINERARY EXPAND BLOCK
-   ======================= */
+    .step-card:hover {
+      transform: translateY(-8px);
+    }
 
-.itinerary-box {
-  display: none;
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 14px;
-  background: rgba(245, 245, 245, 0.95);
-  font-size: 13px;
-  text-align: left;
-  line-height: 1.6;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-}
+    .step-number {
+      width: 45px;
+      height: 45px;
+      background: #e449d7;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
 
-/* When active */
-.trip-card.active .itinerary-box {
-  display: block;
-}
+    .step-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #222;
+    }
 
+    .step-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+    }
 
-.trip-card button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: none;
-  background: linear-gradient(135deg, #6a5acd, #ff8c94);
-  color: white;
-  cursor: pointer;
-}
-
-.custom-card {
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-.trip-tags span {
-  display: inline-block;
-  margin: 8px;
-  padding: 8px 14px;
-  background: rgba(255,255,255,0.7);
-  border-radius: 20px;
-  font-size: 14px;
-}
-
-.custom-card button {
-  margin-top: 25px;
-  padding: 14px 32px;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: white;
-  background: linear-gradient(135deg, #8e6ddf, #f18bbf);
-}
-
-.how-it-works {
-  background: #a22f70;
-  padding: 60px 40px;
-  border-radius: 20px;
-  margin: 50px 0;
-}
-
-.how-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-}
-
-.how-header h2 {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-.how-header p {
-  font-size: 16px;
-  opacity: 0.9;
-}
-
-.steps-container {
-  display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.step-card {
-  background: white;
-  border-radius: 20px;
-  padding: 35px 25px;
-  width: 260px;
-  position: relative;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
-}
-
-.step-card:hover {
-  transform: translateY(-8px);
-}
-
-.step-number {
-  width: 45px;
-  height: 45px;
-  background: #e449d7;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.step-card h3 {
-  font-size: 18px;
-  margin-bottom: 12px;
-  color: #222;
-}
-
-.step-card p {
-  font-size: 14px;
-  color: #555;
-  line-height: 1.6;
-}
-
-
-    /* =======================
-       FOOTER
-       ======================= */
+    /* FOOTER */
     .site-footer {
-        margin-top: 60px;
-        padding: 50px 40px 20px;
-        background: rgba(255, 255, 255, 0.25);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-top: 1px solid rgba(255, 255, 255, 0.4);
-        color: #222;
-      }
+      margin-top: 60px;
+      padding: 50px 40px 20px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      color: #222;
+    }
 
-      /* About section full width */
-      .footer-about-full {
-  width: 100%;
-  margin-bottom: 40px;
-}
+    .footer-about-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
 
-.footer-about-full p {
-  width: 100%;
-  max-width: 1100px;   /* SAME behaviour like About Us */
-  line-height: 1.8;
-  color: #333;
-}
+    .footer-about-full p {
+      width: 100%;
+      max-width: 1100px;
+      line-height: 1.8;
+      color: #333;
+    }
 
+    .footer-team-row h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
 
-      
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
 
-      /* Team Section */
-      .footer-team-row h3 {
-        font-size: 20px;
-        margin-bottom: 20px;
-      }
+    .team-member {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
 
+    .team-member h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .team-member p {
+      font-size: 13px;
+      margin: 4px 0;
+      color: #444;
+    }
+
+    .team-member a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #6b4eff;
+      text-decoration: none;
+    }
+
+    .team-member a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 15px;
+      font-size: 13px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      color: #444;
+    }
+
+    @media (max-width: 900px) {
       .team-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
+        grid-template-columns: 1fr;
       }
-
-      /* Team cards */
-      .team-member {
-        background: rgba(255, 255, 255, 0.45);
-        backdrop-filter: blur(8px);
-        border-radius: 16px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      }
-
-      .team-member h4 {
-        font-size: 16px;
-        margin-bottom: 8px;
-      }
-
-      .team-member p {
-        font-size: 13px;
-        margin: 4px 0;
-        color: #444;
-      }
-
-      .team-member a {
-        display: inline-block;
-        margin-top: 8px;
-        font-size: 13px;
-        color: #6b4eff;
-        text-decoration: none;
-      }
-
-      .team-member a:hover {
-        text-decoration: underline;
-      }
-
-      /* Footer bottom */
-      .footer-bottom {
-        text-align: center;
-        margin-top: 40px;
-        padding-top: 15px;
-        font-size: 13px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        color: #444;
-      }
-
-      /* Responsive */
-      @media (max-width: 900px) {
-        .team-grid {
-          grid-template-columns: 1fr;
-        }
-      }
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- =======================
-       SIDE MENU (EMPTY FOR NOW)
-       ======================= -->
+  <!-- SIDE MENU -->
   <div class="side-menu" id="sideMenu">
     <h3>Menu</h3>
     <div class="menu-items">
@@ -542,15 +575,10 @@
     </div>
   </div>
 
-  <!-- =======================
-       NAVBAR
-       ======================= -->
+  <!-- NAVBAR -->
   <div class="navbar">
     <div class="nav-left">
-      <!-- Menu icon -->
       <div class="menu-icon" onclick="toggleMenu(event)">☰</div>
-
-      <!-- Navio button -->
       <div class="logo">Navio</div>
     </div>
 
@@ -560,773 +588,760 @@
     </div>
   </div>
 
-  <!-- =======================
-       SEARCH BAR
-       ======================= -->
-  <div class="search-container">
-    <input 
-      type="text" 
-      class="search-bar" 
-      placeholder="Search (functionality will be added later)" 
-    />
+  <!-- RECOMMENDED TRIPS SECTION -->
+  <div class="section-header">
+    <h2>Recommended Trips</h2>
   </div>
 
-  <!-- =======================
-       CARDS SECTION
-       ======================= -->
-  <div class="cards-container">
-
-    <!-- Card 1 -->
-       <div class="card">
-  <h2>Recommended Trips</h2>
-
-  <!-- Slider Wrapper -->
   <div class="slider-wrapper">
-
-    <!-- Slider Track (will move continuously) -->
     <div class="slider-track">
 
-      <!-- === ORIGINAL CARDS === -->
+      <!-- Original Cards -->
       <div class="trip-card">
-  <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5">
-  <h3>Delhi</h3>
-  <p>Historic capital of India.</p>
+        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Delhi">
+        <div class="card-info">
+          <h3>Delhi</h3>
+          <p>Historic capital of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: India Gate
+  • Afternoon: Rashtrapati Bhavan area
+  • Evening: Connaught Place cafés
+  • Night: Light dinner, rest
 
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: India Gate 
-	•	Afternoon: Rashtrapati Bhavan area 
-	•	Evening: Connaught Place cafés 
-	•	Night: Light dinner, rest
 Day 2:
-	•	Morning: Jama Masjid
-	•	Afternoon: Chandni Chowk food walk
-	•	Evening: Red Fort
-	•	Night: Return early (crowded post 9 PM)
+  • Morning: Jama Masjid
+  • Afternoon: Chandni Chowk food walk
+  • Evening: Red Fort
+  • Night: Return early
+
 Day 3:
-	•	Morning: Qutub Minar
-	•	Afternoon: Humayun’s Tomb
-	•	Evening: Lodhi Garden sunset walk
-	•	Night: Café hopping nearby
+  • Morning: Qutub Minar
+  • Afternoon: Humayun's Tomb
+  • Evening: Lodhi Garden sunset walk
+  • Night: Café hopping nearby
+
 Day 4:
-	•	Morning: Lotus Temple
-	•	Afternoon: Dilli Haat (crafts & food)
-	•	Evening: Hauz Khas Village walk
-	•	Night: Rooftop café / live music
-Day 5 :
-	•	Morning: Akshardham Temple
-	•	Afternoon: National Museum / Gandhi Smriti
-	•	Evening: Last-minute shopping
-	•	Night: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
+  • Morning: Lotus Temple
+  • Afternoon: Dilli Haat (crafts & food)
+  • Evening: Hauz Khas Village walk
+  • Night: Rooftop café / live music
 
- <div class="trip-card">
-  <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4MzgyNDk5LWltYWdlLWt3dnZobnRoLmpwZw.jpg">
-  <h3>Varanasi</h3>
-  <p>Spiritual heart of India.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in, rest
-	•	Afternoon: Walk around  Ghat
-	•	Evening: Ganga Aarti 
-	•	Night: Light dinner nearby
-Day 2 :
-	•	Morning: Kashi Vishwanath 
-	•	Afternoon: Annapurna Temple
-	•	Evening: Manikarnika Ghat 
-	•	Night: Rest
-Day 3:
-	•	Morning: Sunrise boat ride 
-	•	Afternoon: Tulsi Manas Mandir
-	•	Evening: Assi Ghat cultural evening
-	•	Night: Café near Assi 
-Day 4:
-	•	Morning: Sarnath 
-	•	Afternoon: Sarnath Museum
-	•	Evening: Return to Varanasi
-	•	Night: Leisure time
-Day 5 :
-	•	Morning:  ghat walk
-	•	Afternoon: Souvenir shopping
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
-
-<div class="trip-card">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-  <h3>Goa</h3>
-  <p>Beaches, nightlife, and chill vibes.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in
-	•	Afternoon: Calangute Beach
-	•	Evening: Baga Beach sunset
-Day 2 :
-	•	Morning: Water sports at Baga
-	•	Afternoon: Lunch nearby
-	•	Evening: Fort Aguada sunset views
-	•	Night: café hopping
-Day 3:
-	•	Afternoon: Panaji city walk
-	•	Evening: Miramar Beach
-	•	Night: Riverfront dinner
-Day 4:
-	•	Morning: Colva 
-	•	Afternoon: /swimming
-	•	Evening: Sunset walk
-Day 5 :
-	•	Morning:  shopping (Anjuna / Mapusa)
-	•	Afternoon: Packing & checkout
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
-
-<div class="trip-card">
-  <img src="https://images.pexels.com/photos/19149607/pexels-photo-19149607/free-photo-of-the-hawa-mahal-palace-in-jaipur-india.jpeg">
-  <h3>Jaipur</h3>
-  <p>The Pink City of forts and palaces.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: City Palace
-	•	Afternoon: Jantar Mantar
-	•	Evening: Hawa Mahal 
-	•	Night: Dinner near MI Road
-Day 2:
-	•	Morning: Amber Fort 
-	•	Afternoon: Panna Meena ka Kund
-	•	Evening: Jaigarh Fort 
-	•	Night: light stroll
-Day 3 :
-	•	Morning: Albert Hall Museum
-	•	Afternoon: Birla Mandir
-	•	Evening: Bapu Bazaar 
-	•	Night: Rooftop café
-Day 4 :
-	•	Morning: Nahargarh Fort
-	•	Afternoon: Galtaji 
-	•	Evening: Chokhi Dhani
-	•	Night: Dinner at resort
 Day 5:
-	•	Morning: heritage walk
-	•	Afternoon: Souvenir shopping
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
+  • Morning: Akshardham Temple
+  • Afternoon: National Museum / Gandhi Smriti
+  • Evening: Last-minute shopping
+  • Night: Departure</pre>
+        </div>
+      </div>
 
-
-<div class="trip-card">
-  <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122/free-photo-of-view-of-a-stream-in-mountains.jpeg">
-  <h3>Mannali</h3>
-  <p>Mountains, snow, and adventure.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in
-	•	Afternoon: Hadimba Devi Temple
-	•	Evening: Old Manali walk
-Day 2 :
-	•	Morning: Solang Valley (activities)
-	•	Afternoon: Lunch at Solang
-	•	Evening: Return & leisure time
-	•	Night: Bonfire 
-Day 3:
-	•	Morning: Rohtang Pass 
-	•	Afternoon: Sissu / nearby viewpoints
-	•	Evening: Return to Manali
-	•	Night: Rest
-Day 4:
-	•	Morning: Vashisht Temple 
-	•	Afternoon: Tibetan Monastery
-	•	Evening: Mall Road shopping
-	•	Night: Café hopping
-Day 5:
-	•	Morning: Nature walk / river-side stroll
-	•	Afternoon: Souvenir shopping & packing
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>  
-
-<div class="trip-card">
-  <img src="https://images.pexels.com/photos/5696769/pexels-photo-5696769.jpeg">
-  <h3>Ooty</h3>
-  <p>Calm hill station with tea gardens.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in
-	•	Afternoon: Ooty Lake boating
-	•	Evening: Lake-side walk
-Day 2 :
-	•	Morning: Government Botanical Garden
-	•	Afternoon: Rose Garden
-	•	Evening: Doddabetta Peak sunset
-Day 3 :
-	•	Morning: Toy Train / drive to Coonoor
-	•	Afternoon: Sim’s Park
-	•	Evening: Dolphin’s Nose & Lamb’s Rock
-	•	Night: Return to Ooty
-Day 4:
-	•	Morning: Tea Factory & Museum
-	•	Afternoon: Pine Forest
-	•	Evening: Shooting Point
-	•	Night: Café hopping
-Day 5:
-	•	Morning: shopping (tea, chocolates)
-	•	Afternoon: Packing & checkout
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>  
-
-
-            <!-- === DUPLICATE SAME CARDS (FOR INFINITE LOOP) === -->
-      <!-- JUST COPY SAME CARDS AGAIN -->
-    <!-- Poora copy paste krna yha pe firse ek baar-->
-<!-- === ORIGINAL CARDS === -->
       <div class="trip-card">
-  <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5">
-  <h3>Delhi</h3>
-  <p>Historic capital of India.</p>
+        <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4MzgyNDk5LWltYWdlLWt3dnZobnRoLmpwZw.jpg" alt="Varanasi">
+        <div class="card-info">
+          <h3>Varanasi</h3>
+          <p>Spiritual heart of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in, rest
+  • Afternoon: Walk around Ghat
+  • Evening: Ganga Aarti
+  • Night: Light dinner nearby
 
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: India Gate 
-	•	Afternoon: Rashtrapati Bhavan area 
-	•	Evening: Connaught Place cafés 
-	•	Night: Light dinner, rest
 Day 2:
-	•	Morning: Jama Masjid
-	•	Afternoon: Chandni Chowk food walk
-	•	Evening: Red Fort
-	•	Night: Return early (crowded post 9 PM)
+  • Morning: Kashi Vishwanath
+  • Afternoon: Annapurna Temple
+  • Evening: Manikarnika Ghat
+  • Night: Rest
+
 Day 3:
-	•	Morning: Qutub Minar
-	•	Afternoon: Humayun’s Tomb
-	•	Evening: Lodhi Garden sunset walk
-	•	Night: Café hopping nearby
+  • Morning: Sunrise boat ride
+  • Afternoon: Tulsi Manas Mandir
+  • Evening: Assi Ghat cultural evening
+  • Night: Café near Assi
+
 Day 4:
-	•	Morning: Lotus Temple
-	•	Afternoon: Dilli Haat (crafts & food)
-	•	Evening: Hauz Khas Village walk
-	•	Night: Rooftop café / live music
-Day 5 :
-	•	Morning: Akshardham Temple
-	•	Afternoon: National Museum / Gandhi Smriti
-	•	Evening: Last-minute shopping
-	•	Night: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
+  • Morning: Sarnath
+  • Afternoon: Sarnath Museum
+  • Evening: Return to Varanasi
+  • Night: Leisure time
 
- <div class="trip-card">
-  <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4MzgyNDk5LWltYWdlLWt3dnZobnRoLmpwZw.jpg">
-  <h3>Varanasi</h3>
-  <p>Spiritual heart of India.</p>
+Day 5:
+  • Morning: Ghat walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
 
-  <button class="visit-btn">Visit Here</button>
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Goa">
+        <div class="card-info">
+          <h3>Goa</h3>
+          <p>Beaches, nightlife, and chill vibes</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Calangute Beach
+  • Evening: Baga Beach sunset
 
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in, rest
-	•	Afternoon: Walk around  Ghat
-	•	Evening: Ganga Aarti 
-	•	Night: Light dinner nearby
-Day 2 :
-	•	Morning: Kashi Vishwanath 
-	•	Afternoon: Annapurna Temple
-	•	Evening: Manikarnika Ghat 
-	•	Night: Rest
-Day 3:
-	•	Morning: Sunrise boat ride 
-	•	Afternoon: Tulsi Manas Mandir
-	•	Evening: Assi Ghat cultural evening
-	•	Night: Café near Assi 
-Day 4:
-	•	Morning: Sarnath 
-	•	Afternoon: Sarnath Museum
-	•	Evening: Return to Varanasi
-	•	Night: Leisure time
-Day 5 :
-	•	Morning:  ghat walk
-	•	Afternoon: Souvenir shopping
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
-
-<div class="trip-card">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-  <h3>Goa</h3>
-  <p>Beaches, nightlife, and chill vibes.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in
-	•	Afternoon: Calangute Beach
-	•	Evening: Baga Beach sunset
-Day 2 :
-	•	Morning: Water sports at Baga
-	•	Afternoon: Lunch nearby
-	•	Evening: Fort Aguada sunset views
-	•	Night: café hopping
-Day 3:
-	•	Afternoon: Panaji city walk
-	•	Evening: Miramar Beach
-	•	Night: Riverfront dinner
-Day 4:
-	•	Morning: Colva 
-	•	Afternoon: /swimming
-	•	Evening: Sunset walk
-Day 5 :
-	•	Morning:  shopping (Anjuna / Mapusa)
-	•	Afternoon: Packing & checkout
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
-
-<div class="trip-card">
-  <img src="https://images.pexels.com/photos/19149607/pexels-photo-19149607/free-photo-of-the-hawa-mahal-palace-in-jaipur-india.jpeg">
-  <h3>Jaipur</h3>
-  <p>The Pink City of forts and palaces.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: City Palace
-	•	Afternoon: Jantar Mantar
-	•	Evening: Hawa Mahal 
-	•	Night: Dinner near MI Road
 Day 2:
-	•	Morning: Amber Fort 
-	•	Afternoon: Panna Meena ka Kund
-	•	Evening: Jaigarh Fort 
-	•	Night: light stroll
-Day 3 :
-	•	Morning: Albert Hall Museum
-	•	Afternoon: Birla Mandir
-	•	Evening: Bapu Bazaar 
-	•	Night: Rooftop café
-Day 4 :
-	•	Morning: Nahargarh Fort
-	•	Afternoon: Galtaji 
-	•	Evening: Chokhi Dhani
-	•	Night: Dinner at resort
-Day 5:
-	•	Morning: heritage walk
-	•	Afternoon: Souvenir shopping
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>
+  • Morning: Water sports at Baga
+  • Afternoon: Lunch nearby
+  • Evening: Fort Aguada sunset views
+  • Night: Café hopping
 
-
-<div class="trip-card">
-  <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122/free-photo-of-view-of-a-stream-in-mountains.jpeg">
-  <h3>Mannali</h3>
-  <p>Mountains, snow, and adventure.</p>
-
-  <button class="visit-btn">Visit Here</button>
-
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in
-	•	Afternoon: Hadimba Devi Temple
-	•	Evening: Old Manali walk
-Day 2 :
-	•	Morning: Solang Valley (activities)
-	•	Afternoon: Lunch at Solang
-	•	Evening: Return & leisure time
-	•	Night: Bonfire 
 Day 3:
-	•	Morning: Rohtang Pass 
-	•	Afternoon: Sissu / nearby viewpoints
-	•	Evening: Return to Manali
-	•	Night: Rest
+  • Afternoon: Panaji city walk
+  • Evening: Miramar Beach
+  • Night: Riverfront dinner
+
 Day 4:
-	•	Morning: Vashisht Temple 
-	•	Afternoon: Tibetan Monastery
-	•	Evening: Mall Road shopping
-	•	Night: Café hopping
+  • Morning: Colva Beach
+  • Afternoon: Swimming
+  • Evening: Sunset walk
+
 Day 5:
-	•	Morning: Nature walk / river-side stroll
-	•	Afternoon: Souvenir shopping & packing
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>  
+  • Morning: Shopping (Anjuna / Mapusa)
+  • Afternoon: Packing & checkout</pre>
+        </div>
+      </div>
 
-<div class="trip-card">
-  <img src="https://images.pexels.com/photos/5696769/pexels-photo-5696769.jpeg">
-  <h3>Ooty</h3>
-  <p>Calm hill station with tea gardens.</p>
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/19149607/pexels-photo-19149607/free-photo-of-the-hawa-mahal-palace-in-jaipur-india.jpeg" alt="Jaipur">
+        <div class="card-info">
+          <h3>Jaipur</h3>
+          <p>The Pink City of forts and palaces</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: City Palace
+  • Afternoon: Jantar Mantar
+  • Evening: Hawa Mahal
+  • Night: Dinner near MI Road
 
-  <button class="visit-btn">Visit Here</button>
+Day 2:
+  • Morning: Amber Fort
+  • Afternoon: Panna Meena ka Kund
+  • Evening: Jaigarh Fort
+  • Night: Light stroll
 
-  <!-- Hidden itinerary block -->
-  <div class="itinerary-box">
-    <h4>5-Day Itinerary (Preview)</h4>
-    <pre>
-Day 1 :
-	•	Morning: Arrival, hotel check-in
-	•	Afternoon: Ooty Lake boating
-	•	Evening: Lake-side walk
-Day 2 :
-	•	Morning: Government Botanical Garden
-	•	Afternoon: Rose Garden
-	•	Evening: Doddabetta Peak sunset
-Day 3 :
-	•	Morning: Toy Train / drive to Coonoor
-	•	Afternoon: Sim’s Park
-	•	Evening: Dolphin’s Nose & Lamb’s Rock
-	•	Night: Return to Ooty
+Day 3:
+  • Morning: Albert Hall Museum
+  • Afternoon: Birla Mandir
+  • Evening: Bapu Bazaar
+  • Night: Rooftop café
+
 Day 4:
-	•	Morning: Tea Factory & Museum
-	•	Afternoon: Pine Forest
-	•	Evening: Shooting Point
-	•	Night: Café hopping
-Day 5:
-	•	Morning: shopping (tea, chocolates)
-	•	Afternoon: Packing & checkout
-	•	Evening: Departure
-    </pre>
-    <!-- You will replace this content later -->
-  </div>
-</div>  
+  • Morning: Nahargarh Fort
+  • Afternoon: Galtaji
+  • Evening: Chokhi Dhani
+  • Night: Dinner at resort
 
+Day 5:
+  • Morning: Heritage walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122/free-photo-of-view-of-a-stream-in-mountains.jpeg" alt="Manali">
+        <div class="card-info">
+          <h3>Manali</h3>
+          <p>Mountains, snow, and adventure</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Hadimba Devi Temple
+  • Evening: Old Manali walk
+
+Day 2:
+  • Morning: Solang Valley (activities)
+  • Afternoon: Lunch at Solang
+  • Evening: Return & leisure time
+  • Night: Bonfire
+
+Day 3:
+  • Morning: Rohtang Pass
+  • Afternoon: Sissu / nearby viewpoints
+  • Evening: Return to Manali
+  • Night: Rest
+
+Day 4:
+  • Morning: Vashisht Temple
+  • Afternoon: Tibetan Monastery
+  • Evening: Mall Road shopping
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Nature walk / river-side stroll
+  • Afternoon: Souvenir shopping & packing
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/5696769/pexels-photo-5696769.jpeg" alt="Ooty">
+        <div class="card-info">
+          <h3>Ooty</h3>
+          <p>Calm hill station with tea gardens</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Ooty Lake boating
+  • Evening: Lake-side walk
+
+Day 2:
+  • Morning: Government Botanical Garden
+  • Afternoon: Rose Garden
+  • Evening: Doddabetta Peak sunset
+
+Day 3:
+  • Morning: Toy Train / drive to Coonoor
+  • Afternoon: Sim's Park
+  • Evening: Dolphin's Nose & Lamb's Rock
+  • Night: Return to Ooty
+
+Day 4:
+  • Morning: Tea Factory & Museum
+  • Afternoon: Pine Forest
+  • Evening: Shooting Point
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Shopping (tea, chocolates)
+  • Afternoon: Packing & checkout
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <!-- Duplicate cards for seamless infinite loop -->
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Delhi">
+        <div class="card-info">
+          <h3>Delhi</h3>
+          <p>Historic capital of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: India Gate
+  • Afternoon: Rashtrapati Bhavan area
+  • Evening: Connaught Place cafés
+  • Night: Light dinner, rest
+
+Day 2:
+  • Morning: Jama Masjid
+  • Afternoon: Chandni Chowk food walk
+  • Evening: Red Fort
+  • Night: Return early
+
+Day 3:
+  • Morning: Qutub Minar
+  • Afternoon: Humayun's Tomb
+  • Evening: Lodhi Garden sunset walk
+  • Night: Café hopping nearby
+
+Day 4:
+  • Morning: Lotus Temple
+  • Afternoon: Dilli Haat (crafts & food)
+  • Evening: Hauz Khas Village walk
+  • Night: Rooftop café / live music
+
+Day 5:
+  • Morning: Akshardham Temple
+  • Afternoon: National Museum / Gandhi Smriti
+  • Evening: Last-minute shopping
+  • Night: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4MzgyNDk5LWltYWdlLWt3dnZobnRoLmpwZw.jpg" alt="Varanasi">
+        <div class="card-info">
+          <h3>Varanasi</h3>
+          <p>Spiritual heart of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in, rest
+  • Afternoon: Walk around Ghat
+  • Evening: Ganga Aarti
+  • Night: Light dinner nearby
+
+Day 2:
+  • Morning: Kashi Vishwanath
+  • Afternoon: Annapurna Temple
+  • Evening: Manikarnika Ghat
+  • Night: Rest
+
+Day 3:
+  • Morning: Sunrise boat ride
+  • Afternoon: Tulsi Manas Mandir
+  • Evening: Assi Ghat cultural evening
+  • Night: Café near Assi
+
+Day 4:
+  • Morning: Sarnath
+  • Afternoon: Sarnath Museum
+  • Evening: Return to Varanasi
+  • Night: Leisure time
+
+Day 5:
+  • Morning: Ghat walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Goa">
+        <div class="card-info">
+          <h3>Goa</h3>
+          <p>Beaches, nightlife, and chill vibes</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Calangute Beach
+  • Evening: Baga Beach sunset
+
+Day 2:
+  • Morning: Water sports at Baga
+  • Afternoon: Lunch nearby
+  • Evening: Fort Aguada sunset views
+  • Night: Café hopping
+
+Day 3:
+  • Afternoon: Panaji city walk
+  • Evening: Miramar Beach
+  • Night: Riverfront dinner
+
+Day 4:
+  • Morning: Colva Beach
+  • Afternoon: Swimming
+  • Evening: Sunset walk
+
+Day 5:
+  • Morning: Shopping (Anjuna / Mapusa)
+  • Afternoon: Packing & checkout</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/19149607/pexels-photo-19149607/free-photo-of-the-hawa-mahal-palace-in-jaipur-india.jpeg" alt="Jaipur">
+        <div class="card-info">
+          <h3>Jaipur</h3>
+          <p>The Pink City of forts and palaces</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: City Palace
+  • Afternoon: Jantar Mantar
+  • Evening: Hawa Mahal
+  • Night: Dinner near MI Road
+
+Day 2:
+  • Morning: Amber Fort
+  • Afternoon: Panna Meena ka Kund
+  • Evening: Jaigarh Fort
+  • Night: Light stroll
+
+Day 3:
+  • Morning: Albert Hall Museum
+  • Afternoon: Birla Mandir
+  • Evening: Bapu Bazaar
+  • Night: Rooftop café
+
+Day 4:
+  • Morning: Nahargarh Fort
+  • Afternoon: Galtaji
+  • Evening: Chokhi Dhani
+  • Night: Dinner at resort
+
+Day 5:
+  • Morning: Heritage walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122/free-photo-of-view-of-a-stream-in-mountains.jpeg" alt="Manali">
+        <div class="card-info">
+          <h3>Manali</h3>
+          <p>Mountains, snow, and adventure</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Hadimba Devi Temple
+  • Evening: Old Manali walk
+
+Day 2:
+  • Morning: Solang Valley (activities)
+  • Afternoon: Lunch at Solang
+  • Evening: Return & leisure time
+  • Night: Bonfire
+
+Day 3:
+  • Morning: Rohtang Pass
+  • Afternoon: Sissu / nearby viewpoints
+  • Evening: Return to Manali
+  • Night: Rest
+
+Day 4:
+  • Morning: Vashisht Temple
+  • Afternoon: Tibetan Monastery
+  • Evening: Mall Road shopping
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Nature walk / river-side stroll
+  • Afternoon: Souvenir shopping & packing
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/5696769/pexels-photo-5696769.jpeg" alt="Ooty">
+        <div class="card-info">
+          <h3>Ooty</h3>
+          <p>Calm hill station with tea gardens</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Ooty Lake boating
+  • Evening: Lake-side walk
+
+Day 2:
+  • Morning: Government Botanical Garden
+  • Afternoon: Rose Garden
+  • Evening: Doddabetta Peak sunset
+
+Day 3:
+  • Morning: Toy Train / drive to Coonoor
+  • Afternoon: Sim's Park
+  • Evening: Dolphin's Nose & Lamb's Rock
+  • Night: Return to Ooty
+
+Day 4:
+  • Morning: Tea Factory & Museum
+  • Afternoon: Pine Forest
+  • Evening: Shooting Point
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Shopping (tea, chocolates)
+  • Afternoon: Packing & checkout
+  • Evening: Departure</pre>
+        </div>
+      </div>
 
     </div>
   </div>
-</div>
 
-    </div>
+  <!-- CARDS CONTAINER -->
+  <div class="cards-container">
 
-    <!-- Card 2 -->
+    <!-- Customize Your Itinerary -->
     <div class="card">
       <h2>Customize Your Itinerary</h2>
-      <!-- Content will be added later -->
-       <section class="custom-trip">
-  <div class="custom-card">
-    <h2>Build Your Perfect Trip ✨</h2>
-    <p>
-      Tell us your preferences and we’ll create a travel plan
-      that matches your vibe, budget, and time.
-    </p>
+      <section class="custom-trip">
+        <div class="custom-card">
+          <h2>Build Your Perfect Trip ✨</h2>
+          <p>
+            Tell us your preferences and we'll create a travel plan
+            that matches your vibe, budget, and time.
+          </p>
 
-    <div class="trip-tags">
-      <span>📍 Destination</span>
-      <span>📅 Duration</span>
-      <span>💰 Budget</span>
-      <span>🎒 Travel Style</span>
+          <div class="trip-tags">
+            <span>📍 Destination</span>
+            <span>📅 Duration</span>
+            <span>💰 Budget</span>
+            <span>🎒 Travel Style</span>
+          </div>
+
+          <button onclick="window.location.href='final.html'">
+            Customize My Trip
+          </button>
+        </div>
+      </section>
     </div>
 
-    <button onclick="window.location.href='customize.html'">
-      Customize My Trip
-    </button>
-  </div>
-</section>
-
-    </div>
-
-    <!-- Card 3 -->
+    <!-- How It Works -->
     <div class="card">
       <h2>How It Works?</h2>
-      <!-- Content will be added later -->
-       <section class="how-it-works">
-  <div class="how-header">
-    <h2>Create Your Itinerary in 4 Simple Steps</h2>
-    <p>From destination to detailed trip plan in minutes</p>
-  </div>
-
-  <div class="steps-container">
-
-    <div class="step-card">
-      <div class="step-number">1</div>
-      <h3>Enter Your Destination</h3>
-      <p>
-        Type your travel destination. Our smart search finds cities,
-        regions, and specific locations worldwide.
-      </p>
-    </div>
-
-    <div class="step-card">
-      <div class="step-number">2</div>
-      <h3>Set Your Travel Dates</h3>
-      <p>
-        Select when you're traveling. The AI optimizes your itinerary
-        based on trip length and local events.
-      </p>
-    </div>
-
-    <div class="step-card">
-      <div class="step-number">3</div>
-      <h3>Generate with AI</h3>
-      <p>
-        Click generate and watch AI create your personalized day-by-day
-        itinerary with activities and recommendations.
-      </p>
-    </div>
-
-    <div class="step-card">
-      <div class="step-number">4</div>
-      <h3>Customize & Share</h3>
-      <p>
-        Edit activities, add companions, and share your itinerary.
-        Your perfect trip is ready to go.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-    </div>
-
-  </div>
-
-  <!-- =======================
-       FOOTER
-       ======================= -->
-   <footer class="site-footer">
-      <div class="footer-container">
-        <!-- About Us (Full Width) -->
-        <div class="footer-about-full">
-          <h3>About Navio</h3>
-          <p>
-            Navio is a smart travel-planning platform designed to simplify how people explore new destinations. It helps users create personalized itineraries based on their preferences such as destination, travel duration, budget, and travel style. With a focus on clarity and real-time planning, Navio aims to make trip planning faster, more intuitive, and stress-free by turning user inputs into structured, easy-to-follow travel plans.
-          </p>
+      <section class="how-it-works">
+        <div class="how-header">
+          <h2>Create Your Itinerary in 4 Simple Steps</h2>
+          <p>From destination to detailed trip plan in minutes</p>
         </div>
 
-        <!-- Developed By -->
-        <div class="footer-team-row">
-          <h3>Developed By</h3>
+        <div class="steps-container">
 
-          <div class="team-grid">
-            <div class="team-member">
-              <h4>Mukund Keshwani</h4>
-              <p>Email: mukund.haresh@bcah.christuniversity.in</p>
-              <p>Contact: +91 9359888264</p>
-              <a href="https://www.linkedin.com/in/mukund-keshwani-315148378/" target="_blank">LinkedIn</a>
-            </div>
-
-            <div class="team-member">
-              <h4>Simran Singh</h4>
-              <p>Email: simran.singh@bcah.christuniversity.in</p>
-              <p>Contact: +91 9798380631</p>
-              <a href="https://www.linkedin.com/in/simran-singh-ab9524350/" target="_blank">LinkedIn</a>
-            </div>
-
-            <div class="team-member">
-              <h4>Piyush Sinha</h4>
-              <p>Email: piyush.sinha@bcah.christuniversity.in</p>
-              <p>Contact: +91 7759040065</p>
-              <a href="https://www.linkedin.com/in/piyush-sinha-91702a378/" target="_blank">LinkedIn</a>
-            </div>
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Enter Your Destination</h3>
+            <p>
+              Type your travel destination. Our smart search finds cities,
+              regions, and specific locations worldwide.
+            </p>
           </div>
-          <br>
-          <h3>About Us</h3>
-          <p>
-            We are The Closing Tags, a team of first-year BCA students from Christ University who are passionate about learning and building through real-world experiences. We actively participate in hackathons and tech events to apply our classroom knowledge to practical problems, improve our skills, and work collaboratively under real constraints. Our focus is on creating clean, user-friendly, and meaningful solutions while continuously growing as developers through hands-on projects and innovation-driven learning.
-          </p>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Set Your Travel Dates</h3>
+            <p>
+              Select when you're traveling. The AI optimizes your itinerary
+              based on trip length and local events.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Generate with AI</h3>
+            <p>
+              Click generate and watch AI create your personalized day-by-day
+              itinerary with activities and recommendations.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Customize & Share</h3>
+            <p>
+              Edit activities, add companions, and share your itinerary.
+              Your perfect trip is ready to go.
+            </p>
+          </div>
+
         </div>
-        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-about-full">
+        <h3>About Navio</h3>
+        <p>
+          Navio is a smart travel-planning platform designed to simplify how people explore new destinations. It helps users create personalized itineraries based on their preferences such as destination, travel duration, budget, and travel style. With a focus on clarity and real-time planning, Navio aims to make trip planning faster, more intuitive, and stress-free by turning user inputs into structured, easy-to-follow travel plans.
+        </p>
       </div>
 
+      <div class="footer-team-row">
+        <h3>Developed By</h3>
 
-      <div class="footer-bottom">
-        <p>© 2026 Navio. All rights reserved.</p>
-      </div>
-    </footer>
+        <div class="team-grid">
+          <div class="team-member">
+            <h4>Mukund Keshwani</h4>
+            <p>Email: mukund.haresh@bcah.christuniversity.in</p>
+            <p>Contact: +91 9359888264</p>
+            <a href="https://www.linkedin.com/in/mukund-keshwani-315148378/" target="_blank">LinkedIn</a>
+          </div>
 
+          <div class="team-member">
+            <h4>Simran Singh</h4>
+            <p>Email: simran.singh@bcah.christuniversity.in</p>
+            <p>Contact: +91 9798380631</p>
+            <a href="https://www.linkedin.com/in/simran-singh-ab9524350/" target="_blank">LinkedIn</a>
+          </div>
 
-  <!-- =======================
-       JAVASCRIPT
-       ======================= -->
- <script type="module">
-  import { auth } from "./login/firebase.js";
-  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-  // Logout function
-  async function handleLogout() {
-    try {
-      await signOut(auth);
-      alert("Logged out successfully!");
-      window.location.reload();
-    } catch (error) {
-      alert("Error logging out: " + error.message);
-    }
-  }
-
-  // Toggle user menu
-  function toggleUserMenu(e) {
-    e.stopPropagation();
-    const userMenu = document.querySelector(".user-menu");
-    if (userMenu) {
-      userMenu.classList.toggle("show");
-    }
-  }
-
-  // Check authentication state
-  onAuthStateChanged(auth, (user) => {
-    const authButton = document.getElementById("authButton");
-    
-    if (user) {
-      // User is logged in - show user icon with menu
-      authButton.innerHTML = `
-        👤
-        <div class="user-menu">
-          <div class="user-menu-item">Logged in as:<br><strong>${user.email}</strong></div>
-          <button class="user-menu-item logout" id="logoutBtn">Logout</button>
+          <div class="team-member">
+            <h4>Piyush Sinha</h4>
+            <p>Email: piyush.sinha@bcah.christuniversity.in</p>
+            <p>Contact: +91 7759040065</p>
+            <a href="https://www.linkedin.com/in/piyush-sinha-91702a378/" target="_blank">LinkedIn</a>
+          </div>
         </div>
-      `;
-      authButton.className = 'user-icon';
-      authButton.onclick = toggleUserMenu;
+        <br>
+        <h3>About Us</h3>
+        <p>
+          We are The Closing Tags, a team of first-year BCA students from Christ University who are passionate about learning and building through real-world experiences. We actively participate in hackathons and tech events to apply our classroom knowledge to practical problems, improve our skills, and work collaboratively under real constraints. Our focus is on creating clean, user-friendly, and meaningful solutions while continuously growing as developers through hands-on projects and innovation-driven learning.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Navio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script type="module">
+    import { auth } from "./login/firebase.js";
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Logout function
+    async function handleLogout() {
+      try {
+        await signOut(auth);
+        alert("Logged out successfully!");
+        window.location.reload();
+      } catch (error) {
+        alert("Error logging out: " + error.message);
+      }
+    }
+
+    // Toggle user menu
+    function toggleUserMenu(e) {
+      e.stopPropagation();
+      const userMenu = document.querySelector(".user-menu");
+      if (userMenu) {
+        userMenu.classList.toggle("show");
+      }
+    }
+
+    // Check authentication state
+    onAuthStateChanged(auth, (user) => {
+      const authButton = document.getElementById("authButton");
       
-      // Add logout event listener
-      setTimeout(() => {
-        document.getElementById("logoutBtn").addEventListener("click", handleLogout);
-      }, 0);
-    } else {
-      // User is not logged in - show login button
-      authButton.innerHTML = 'Login / Signup';
-      authButton.className = 'nav-btn';
-      authButton.onclick = () => window.location.href = 'login/login.html';
-    }
-  });
-
-  // Close user menu when clicking outside
-  document.addEventListener("click", function(e) {
-    const userMenu = document.querySelector(".user-menu");
-    const userIcon = document.querySelector(".user-icon");
-    
-    if (userMenu && !userIcon?.contains(e.target)) {
-      userMenu.classList.remove("show");
-    }
-  });
-
-  // Toggle side menu
-  function toggleMenu(e) {
-    e.stopPropagation();
-    document.getElementById("sideMenu").classList.toggle("active");
-  }
-  
-  // Make toggleMenu available globally
-  window.toggleMenu = toggleMenu;
-
-  // Close menu when clicking outside
-  document.addEventListener("click", function(e) {
-    const sideMenu = document.getElementById("sideMenu");
-    const menuButton = document.querySelector(".navbar .menu-icon");
-    
-    // Check if click is outside menu and not on menu button
-    if (!sideMenu.contains(e.target) && e.target !== menuButton) {
-      sideMenu.classList.remove("active");
-    }
-  });
-
-  // Prevent menu from closing when clicking inside it
-  document.getElementById("sideMenu").addEventListener("click", function(e) {
-    e.stopPropagation();
-  });
-
-  const sliderTrack = document.querySelector(".slider-track");
-  const tripCards = document.querySelectorAll(".trip-card");
-
-  // EVENT DELEGATION FOR VISIT BUTTONS
-  sliderTrack.addEventListener("click", function (e) {
-    const visitBtn = e.target.closest(".visit-btn");
-
-    if (!visitBtn) return;
-
-    e.stopPropagation();
-
-    const clickedCard = visitBtn.closest(".trip-card");
-
-    // Close all other cards
-    document.querySelectorAll(".trip-card.active").forEach(card => {
-      if (card !== clickedCard) card.classList.remove("active");
+      if (user) {
+        authButton.innerHTML = `
+          👤
+          <div class="user-menu">
+            <div class="user-menu-item">Logged in as:<br><strong>${user.email}</strong></div>
+            <button class="user-menu-item logout" id="logoutBtn">Logout</button>
+          </div>
+        `;
+        authButton.className = 'user-icon';
+        authButton.onclick = toggleUserMenu;
+        
+        setTimeout(() => {
+          document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+        }, 0);
+      } else {
+        authButton.innerHTML = 'Login / Signup';
+        authButton.className = 'nav-btn';
+        authButton.onclick = () => window.location.href = 'login/login.html';
+      }
     });
 
-    // Toggle current card
-    clickedCard.classList.toggle("active");
-  });
-
-  // Close itinerary when clicking outside
-  document.body.addEventListener("click", () => {
-    document.querySelectorAll(".trip-card.active").forEach(card => {
-      card.classList.remove("active");
+    // Close user menu when clicking outside
+    document.addEventListener("click", function(e) {
+      const userMenu = document.querySelector(".user-menu");
+      const userIcon = document.querySelector(".user-icon");
+      
+      if (userMenu && !userIcon?.contains(e.target)) {
+        userMenu.classList.remove("show");
+      }
     });
-  });
 
-  // Prevent closing when clicking inside slider
-  sliderTrack.addEventListener("click", e => e.stopPropagation());
-</script>
+    // Toggle side menu
+    function toggleMenu(e) {
+      e.stopPropagation();
+      document.getElementById("sideMenu").classList.toggle("active");
+    }
+    
+    window.toggleMenu = toggleMenu;
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function(e) {
+      const sideMenu = document.getElementById("sideMenu");
+      const menuButton = document.querySelector(".navbar .menu-icon");
+      
+      if (!sideMenu.contains(e.target) && e.target !== menuButton) {
+        sideMenu.classList.remove("active");
+      }
+    });
+
+    // Prevent menu from closing when clicking inside it
+    document.getElementById("sideMenu").addEventListener("click", function(e) {
+      e.stopPropagation();
+    });
+
+    // Handle visit button clicks with event delegation
+    const sliderTrack = document.querySelector(".slider-track");
+    if (sliderTrack) {
+      // Use event delegation on the slider track
+      sliderTrack.addEventListener("click", function (e) {
+        // Check if a visit button was clicked
+        if (e.target.classList.contains("visit-btn") || e.target.closest(".visit-btn")) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          const visitBtn = e.target.classList.contains("visit-btn") ? e.target : e.target.closest(".visit-btn");
+          const clickedCard = visitBtn.closest(".trip-card");
+
+          if (!clickedCard) return;
+
+          // Close all other cards
+          document.querySelectorAll(".trip-card.active").forEach(card => {
+            if (card !== clickedCard) {
+              card.classList.remove("active");
+            }
+          });
+
+          // Toggle current card
+          clickedCard.classList.toggle("active");
+          
+          // If card is now active, pause animation and scroll into view
+          if (clickedCard.classList.contains("active")) {
+            sliderTrack.style.animationPlayState = 'paused';
+            setTimeout(() => {
+              clickedCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }, 100);
+          } else {
+            // Resume animation if no cards are active
+            const hasActiveCards = document.querySelectorAll(".trip-card.active").length > 0;
+            if (!hasActiveCards) {
+              sliderTrack.style.animationPlayState = 'running';
+            }
+          }
+        }
+      });
+
+      // Close itinerary when clicking outside the slider
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".slider-wrapper")) {
+          const hadActiveCards = document.querySelectorAll(".trip-card.active").length > 0;
+          document.querySelectorAll(".trip-card.active").forEach(card => {
+            card.classList.remove("active");
+          });
+          if (hadActiveCards) {
+            sliderTrack.style.animationPlayState = 'running';
+          }
+        }
+      });
+
+      // Prevent event bubbling when clicking inside the slider
+      sliderTrack.addEventListener("click", e => {
+        if (!e.target.classList.contains("visit-btn") && !e.target.closest(".visit-btn")) {
+          e.stopPropagation();
+        }
+      });
+    }
+  </script>
 </body>
 </html>

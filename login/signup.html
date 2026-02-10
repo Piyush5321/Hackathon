@@ -1,29 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Signup</title>
-<link rel="stylesheet" href="login.css">
+    <title>Signup</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            margin-top: auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer-title {
+            font-size: 14px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-<h2>Create Account</h2>
+<div class="main-content">
+    <div class="container">
+        <h2>Create Account</h2>
 
-<form id="signupForm">
+        <form id="signupForm">
+            <input type="email" id="email" placeholder="Email">
+            <input type="text" id="phone" placeholder="Phone">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button type="submit">Sign Up</button>
+        </form>
 
-<input type="email" id="email" placeholder="Email">
-<input type="text" id="phone" placeholder="Phone">
-<input type="text" id="username" placeholder="Username">
-<input type="password" id="password" placeholder="Password">
-
-<button type="submit">Sign Up</button>
-</form>
-
-<p>Already have account?
-<a href="login.html">Login</a>
-</p>
-
+        <p>Already have account?
+            <a href="login.html">Login</a>
+        </p>
+    </div>
 </div>
+
+<footer class="footer">
+    <p class="footer-title"><strong>Navio</strong> - Smart Travel Planning Platform</p>
+    <p class="footer-copy">© 2026 Navio. All rights reserved. | Developed by Mukund, Simran & Piyush</p>
+</footer>
 
 <script type="module" src="signup.js"></script>
 </body>
