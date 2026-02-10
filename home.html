@@ -53,6 +53,39 @@
       font-weight: 500;
     }
 
+    /* Menu items container */
+    .menu-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Individual menu item */
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px;
+      background: white;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .menu-item:hover {
+      background: linear-gradient(135deg, #ff8c00 0%, #ff6f00 100%);
+      color: white;
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    }
+
+    .menu-icon {
+      font-size: 20px;
+    }
+
     /* =======================
        NAVBAR
        ======================= */
@@ -99,6 +132,62 @@
       cursor: pointer;
       background: white;
       font-weight: 500;
+    }
+
+    /* User icon styles */
+    .user-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .user-menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      z-index: 100;
+      min-width: 150px;
+    }
+
+    .user-menu.show {
+      display: block;
+    }
+
+    .user-menu-item {
+      padding: 12px 20px;
+      font-size: 14px;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      width: 100%;
+      text-align: left;
+      background: white;
+    }
+
+    .user-menu-item:hover {
+      background: #f5f5f5;
+    }
+
+    .user-menu-item.logout {
+      color: #ff4444;
+      border-top: 1px solid #eee;
+    }
+
+    .user-menu-item.logout:hover {
+      background: #ffebee;
     }
 
     /* =======================
@@ -441,7 +530,16 @@
        ======================= -->
   <div class="side-menu" id="sideMenu">
     <h3>Menu</h3>
-    <!-- You will add items here later -->
+    <div class="menu-items">
+      <a href="Alert/view-alerts.html" class="menu-item">
+        <span class="menu-icon">🔍</span>
+        <span>Search Alerts</span>
+      </a>
+      <a href="Alert/alerts-form.html" class="menu-item">
+        <span class="menu-icon">📝</span>
+        <span>Alert Form</span>
+      </a>
+    </div>
   </div>
 
   <!-- =======================
@@ -450,7 +548,7 @@
   <div class="navbar">
     <div class="nav-left">
       <!-- Menu icon -->
-      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+      <div class="menu-icon" onclick="toggleMenu(event)">☰</div>
 
       <!-- Navio button -->
       <div class="logo">Navio</div>
@@ -458,7 +556,7 @@
 
     <div class="nav-right">
       <button class="nav-btn">New Trip</button>
-      <button class="nav-btn">Login / Signup</button>
+      <button class="nav-btn" id="authButton" onclick="window.location.href='login/login.html'">Login / Signup</button>
     </div>
   </div>
 
@@ -1111,11 +1209,92 @@ Day 5:
   <!-- =======================
        JAVASCRIPT
        ======================= -->
- <script>
+ <script type="module">
+  import { auth } from "./login/firebase.js";
+  import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+  // Logout function
+  async function handleLogout() {
+    try {
+      await signOut(auth);
+      alert("Logged out successfully!");
+      window.location.reload();
+    } catch (error) {
+      alert("Error logging out: " + error.message);
+    }
+  }
+
+  // Toggle user menu
+  function toggleUserMenu(e) {
+    e.stopPropagation();
+    const userMenu = document.querySelector(".user-menu");
+    if (userMenu) {
+      userMenu.classList.toggle("show");
+    }
+  }
+
+  // Check authentication state
+  onAuthStateChanged(auth, (user) => {
+    const authButton = document.getElementById("authButton");
+    
+    if (user) {
+      // User is logged in - show user icon with menu
+      authButton.innerHTML = `
+        👤
+        <div class="user-menu">
+          <div class="user-menu-item">Logged in as:<br><strong>${user.email}</strong></div>
+          <button class="user-menu-item logout" id="logoutBtn">Logout</button>
+        </div>
+      `;
+      authButton.className = 'user-icon';
+      authButton.onclick = toggleUserMenu;
+      
+      // Add logout event listener
+      setTimeout(() => {
+        document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+      }, 0);
+    } else {
+      // User is not logged in - show login button
+      authButton.innerHTML = 'Login / Signup';
+      authButton.className = 'nav-btn';
+      authButton.onclick = () => window.location.href = 'login/login.html';
+    }
+  });
+
+  // Close user menu when clicking outside
+  document.addEventListener("click", function(e) {
+    const userMenu = document.querySelector(".user-menu");
+    const userIcon = document.querySelector(".user-icon");
+    
+    if (userMenu && !userIcon?.contains(e.target)) {
+      userMenu.classList.remove("show");
+    }
+  });
+
   // Toggle side menu
-  function toggleMenu() {
+  function toggleMenu(e) {
+    e.stopPropagation();
     document.getElementById("sideMenu").classList.toggle("active");
   }
+  
+  // Make toggleMenu available globally
+  window.toggleMenu = toggleMenu;
+
+  // Close menu when clicking outside
+  document.addEventListener("click", function(e) {
+    const sideMenu = document.getElementById("sideMenu");
+    const menuButton = document.querySelector(".navbar .menu-icon");
+    
+    // Check if click is outside menu and not on menu button
+    if (!sideMenu.contains(e.target) && e.target !== menuButton) {
+      sideMenu.classList.remove("active");
+    }
+  });
+
+  // Prevent menu from closing when clicking inside it
+  document.getElementById("sideMenu").addEventListener("click", function(e) {
+    e.stopPropagation();
+  });
 
   const sliderTrack = document.querySelector(".slider-track");
   const tripCards = document.querySelectorAll(".trip-card");

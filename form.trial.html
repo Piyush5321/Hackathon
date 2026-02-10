@@ -6,83 +6,244 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body{
-  font-family:Poppins,sans-serif;
-  background:#f8fafc;
-  padding:40px;
-}
-.container{
-  max-width:950px;
-  margin:auto;
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 15px 40px rgba(0,0,0,.1);
-}
-h1{text-align:center;margin-bottom:30px;}
-.section{margin-bottom:25px;}
-label{font-weight:500;display:block;margin-bottom:8px;}
-select,input{width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;}
+    /* ===== GLOBAL ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      margin: 0;
+    }
 
-.budgets,.types{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.budget{
-  flex:1;
-  text-align:center;
-  padding:14px;
-  background:#e2e8f0;
-  border-radius:12px;
-  cursor:pointer;
-}
-.budget.active{background:#f97316;color:#fff;}
+    /* ===== MAIN CARD ===== */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
 
-.types label{
-  background:#e2e8f0;
-  padding:8px 16px;
-  border-radius:20px;
-  cursor:pointer;
-}
-.types input{display:none;}
-.types input:checked + span{
-  background:#0f172a;
-  color:white;
-  padding:8px 16px;
-  border-radius:20px;
-}
+    .container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
 
-button{
-  width:100%;
-  padding:16px;
-  background:#f97316;
-  color:white;
-  border:none;
-  border-radius:14px;
-  font-size:16px;
-  cursor:pointer;
-}
+    h1 {
+      text-align: center;
+    }
 
-.result{
-  margin-top:30px;
-  background:#f1f5f9;
-  padding:20px;
-  border-radius:16px;
-}
-.day{
-  background:white;
-  padding:18px;
-  border-radius:16px;
-  margin-bottom:20px;
-}
-.slot{margin-top:8px;font-size:14px;}
-.slot span{font-weight:600;}
-.note{
-  font-size:13px;
-  margin-bottom:15px;
-  color:#475569;
-}
+    /* ===== SECTION CARDS ===== */
+    .section-card, .section {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .section-card:hover, .section:hover {
+      background: #e2e8f0;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* ===== INPUTS ===== */
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 0 0 1px #cbd5f5;
+      transition: 0.25s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.25);
+    }
+
+    /* ===== ROW ===== */
+    .row {
+      display: flex;
+      gap: 32px;
+    }
+
+    /* ===== PLACES ===== */
+    .places-box {
+      background: white;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .place-item {
+      margin-bottom: 10px;
+    }
+
+    .place-chip {
+      width: 100%;
+      background: #fff7ed;
+      border: 2px dashed #f97316;
+      color: #9a3412;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .place-chip:hover {
+      background: #ffedd5;
+      transform: translateY(-2px);
+    }
+
+    .plus {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* ===== BUDGET ===== */
+    .budget-options, .budgets {
+      display: flex;
+      gap: 14px;
+    }
+
+    .budget-card, .budget {
+      flex: 1;
+      padding: 16px;
+      background: white;
+      text-align: center;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .budget-card.active, .budget.active {
+      background: #f97316;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* ===== TRAVEL TYPE ===== */
+    .checkbox-group, .types {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .checkbox-group input, .types input {
+      display: none;
+    }
+
+    .checkbox-group span, .types span {
+      background: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-block;
+    }
+
+    .checkbox-group input:checked + span, .types input:checked + span {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* ===== SEASON DROPDOWN ===== */
+    .season-dropdown {
+      position: relative;
+      width: 100%;
+    }
+
+    .season-selected {
+      background: white;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 2px solid #f97316;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .season-options {
+      display: none;
+      margin-top: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .season-options div {
+      background: white;
+      padding: 14px;
+      border-radius: 14px;
+      border: 2px solid #e2e8f0;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .season-options div:hover {
+      border-color: #f97316;
+      background: #fff7ed;
+      transform: translateY(-2px);
+    }
+
+    .season-dropdown.active .season-options {
+      display: grid;
+    }
+
+    /* ===== BUTTON ===== */
+    button {
+      width: 100%;
+      padding: 16px;
+      background: #f97316;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* ===== RESULT ===== */
+    .result {
+      margin-top: 30px;
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 16px;
+    }
+
+    .day {
+      background: white;
+      padding: 18px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .slot {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .slot span {
+      font-weight: 600;
+    }
+
+    .note {
+      font-size: 13px;
+      margin-bottom: 15px;
+      color: #475569;
+    }
 </style>
 </head>
 
