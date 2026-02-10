@@ -198,7 +198,8 @@
       display: flex;
       gap: 25px;
       width: max-content;
-      animation: scrollLeft 60s linear infinite;
+      animation: scrollLeft 80s linear infinite;
+      will-change: transform;
     }
 
     .slider-track:hover {
@@ -210,8 +211,14 @@
       0% {
         transform: translateX(0);
       }
-      100% {
+      50% {
         transform: translateX(-50%);
+      }
+      50.1% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(0);
       }
     }
 
@@ -222,7 +229,7 @@
       background: rgba(255, 255, 255, 0.65);
       backdrop-filter: blur(10px);
       border-radius: 20px;
-      overflow: hidden;
+      overflow: visible;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       cursor: pointer;
@@ -232,6 +239,14 @@
     .trip-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    }
+
+    .trip-card.active {
+      position: relative;
+      z-index: 100;
+      min-width: auto;
+      max-width: 450px;
+      overflow: visible;
     }
 
     .trip-card img {
@@ -302,9 +317,12 @@
       font-size: 13px;
       text-align: left;
       line-height: 1.6;
-      max-height: 400px;
+      max-height: 500px;
       overflow-y: auto;
       animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      margin-top: 15px;
+      position: relative;
+      z-index: 101;
     }
 
     @keyframes slideDown {
@@ -314,7 +332,7 @@
       }
       to {
         opacity: 1;
-        max-height: 400px;
+        max-height: 500px;
       }
     }
 
@@ -583,7 +601,7 @@
     </div>
 
     <div class="nav-right">
-      <button class="nav-btn">New Trip</button>
+      <button class="nav-btn" onclick="window.location.href='final.html'">New Trip</button>
       <button class="nav-btn" id="authButton" onclick="window.location.href='login/login.html'">Login / Signup</button>
     </div>
   </div>
@@ -1306,12 +1324,10 @@ Day 5:
           // Toggle current card
           clickedCard.classList.toggle("active");
           
-          // If card is now active, pause animation and scroll into view
+          // If card is now active, pause animation
           if (clickedCard.classList.contains("active")) {
             sliderTrack.style.animationPlayState = 'paused';
-            setTimeout(() => {
-              clickedCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }, 100);
+            // Don't scroll, just show the details
           } else {
             // Resume animation if no cards are active
             const hasActiveCards = document.querySelectorAll(".trip-card.active").length > 0;
