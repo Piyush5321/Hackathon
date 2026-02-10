@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Navio | Plan Your Trip</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== GLOBAL ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      margin: 0;
+    }
+
+    /* ===== MAIN CARD ===== */
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    /* ===== SECTION CARDS ===== */
+    .section-card {
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      transition: all 0.3s ease;
+    }
+
+    .section-card:hover {
+      background: #e2e8f0;
+    }
+
+    label {
+      font-weight: 500;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    /* ===== INPUTS ===== */
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 0 0 1px #cbd5f5;
+      transition: 0.25s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.25);
+    }
+
+    /* ===== ROW ===== */
+    .row {
+      display: flex;
+      gap: 32px;
+    }
+
+    /* ===== PLACES ===== */
+    .places-box {
+      background: white;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .place-item {
+      margin-bottom: 10px;
+    }
+
+    .place-chip {
+      width: 100%;
+      background: #fff7ed;
+      border: 2px dashed #f97316;
+      color: #9a3412;
+      padding: 14px 18px;
+      border-radius: 14px;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .place-chip:hover {
+      background: #ffedd5;
+      transform: translateY(-2px);
+    }
+
+    .plus {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* ===== BUDGET ===== */
+    .budget-options {
+      display: flex;
+      gap: 14px;
+    }
+
+    .budget-card {
+      flex: 1;
+      padding: 16px;
+      background: white;
+      text-align: center;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .budget-card.active {
+      background: #f97316;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* ===== TRAVEL TYPE ===== */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .checkbox-group input {
+      display: none;
+    }
+
+    .checkbox-group span {
+      background: white;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: 0.25s;
+      display: inline-block;
+    }
+
+    .checkbox-group input:checked + span {
+      background: #0f172a;
+      color: white;
+    }
+
+    /* ===== SEASON DROPDOWN ===== */
+    .season-dropdown {
+      position: relative;
+      width: 100%;
+    }
+
+    .season-selected {
+      background: white;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 2px solid #f97316;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+
+    .season-options {
+      display: none;
+      margin-top: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .season-options div {
+      background: white;
+      padding: 14px;
+      border-radius: 14px;
+      border: 2px solid #e2e8f0;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .season-options div:hover {
+      border-color: #f97316;
+      background: #fff7ed;
+      transform: translateY(-2px);
+    }
+
+    .season-dropdown.active .season-options {
+      display: grid;
+    }
+
+    /* ===== BUTTON ===== */
+    button {
+      width: 100%;
+      padding: 16px;
+      background: #f97316;
+      border: none;
+      border-radius: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Plan Your Trip with Navio</h1>
+
+  <!-- Destination -->
+  <div class="section-card">
+    <label>Destination</label>
+    <select id="location">
+      <option value="">Select location</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Jaipur">Jaipur</option>
+      <option value="Goa">Goa</option>
+      <option value="Varanasi">Varanasi</option>
+    </select>
+  </div>
+
+  <!-- Recommended Places -->
+  <div class="section-card">
+    <label>Recommended Places</label>
+    <div id="places" class="places-box">
+      Select a destination to see famous places.
+    </div>
+  </div>
+
+  <!-- Itinerary -->
+  <div class="section-card">
+    <label>Your Itinerary</label>
+    <div id="itinerary" class="places-box">
+      No places added yet.
+    </div>
+  </div>
+
+  <!-- Budget -->
+  <div class="section-card">
+    <label>Budget</label>
+    <div class="budget-options">
+      <div class="budget-card">Economy</div>
+      <div class="budget-card">Moderate</div>
+      <div class="budget-card">Luxury</div>
+    </div>
+  </div>
+
+  <!-- Dates -->
+  <div class="section-card row">
+    <div>
+      <label>Start Date</label>
+      <input type="date" id="startDate">
+    </div>
+    <div>
+      <label>End Date</label>
+      <input type="date" id="endDate">
+    </div>
+  </div>
+
+  <!-- Total Days -->
+  <div class="section-card">
+    <label>Total Trip Duration</label>
+    <div id="durationBox" class="places-box">
+      Select dates to see total days.
+    </div>
+  </div>
+
+  <!-- Season -->
+  <div class="section-card">
+    <label>Season of Travel</label>
+    <div class="season-dropdown">
+      <div class="season-selected" onclick="toggleSeason()">
+        Select Season <span>▾</span>
+      </div>
+      <div class="season-options">
+        <div onclick="selectSeason(this)">Summer</div>
+        <div onclick="selectSeason(this)">Winter</div>
+        <div onclick="selectSeason(this)">Monsoon</div>
+        <div onclick="selectSeason(this)">Spring</div>
+        <div onclick="selectSeason(this)">Autumn</div>
+        <div onclick="selectSeason(this)">Festival Season</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Travel Type -->
+  <div class="section-card">
+    <label>Type of Travel</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox"><span>Adventure</span></label>
+      <label><input type="checkbox"><span>Relaxation</span></label>
+      <label><input type="checkbox"><span>Culture</span></label>
+      <label><input type="checkbox"><span>Food</span></label>
+      <label><input type="checkbox"><span>Nature</span></label>
+      <label><input type="checkbox"><span>Spiritual</span></label>
+      <label><input type="checkbox"><span>Shopping</span></label>
+      <label><input type="checkbox"><span>Nightlife</span></label>
+    </div>
+  </div>
+
+  <button>Generate My Itinerary</button>
+</div>
+
+<script>
+
+const itineraryData = {
+  Goa: {
+    Economy: {
+      Adventure: [
+        "Baga Beach",
+        "Anjuna Beach",
+        "Water Sports",
+        "Fort Aguada"
+      ],
+      Nature: [
+        "Butterfly Beach",
+        "Dudhsagar Waterfall",
+        "Spice Plantation"
+      ]
+    },
+    Luxury: {
+      Relaxation: [
+        "Luxury Beach Resort",
+        "Spa & Wellness",
+        "Sunset Cruise"
+      ]
+    }
+  },
+
+  Delhi: {
+    Economy: {
+      Culture: [
+        "India Gate",
+        "Red Fort",
+        "Qutub Minar",
+        "Chandni Chowk"
+      ]
+    }
+  }
+};
+
+
+  const locationSelect = document.getElementById("location");
+  const placesBox = document.getElementById("places");
+  const itineraryBox = document.getElementById("itinerary");
+  const startDate = document.getElementById("startDate");
+  const endDate = document.getElementById("endDate");
+  const durationBox = document.getElementById("durationBox");
+
+  const placesData = {
+    Delhi: ["India Gate", "Red Fort", "Qutub Minar"],
+    Jaipur: ["Hawa Mahal", "Amer Fort", "City Palace"],
+    Goa: ["Baga Beach", "Anjuna Beach", "Fort Aguada"],
+    Varanasi: ["Kashi Vishwanath", "Ganga Aarti", "Sarnath"]
+  };
+
+  let itinerary = [];
+
+  locationSelect.addEventListener("change", () => {
+    const selected = locationSelect.value;
+    placesBox.innerHTML = "";
+
+    if (!placesData[selected]) {
+      placesBox.innerText = "Select a destination to see famous places.";
+      return;
+    }
+
+    placesData[selected].forEach(place => {
+      const div = document.createElement("div");
+      div.className = "place-item";
+      div.innerHTML = `
+        <button class="place-chip" onclick="addToItinerary('${place}')">
+          <span>${place}</span>
+          <span class="plus">+</span>
+        </button>
+      `;
+      placesBox.appendChild(div);
+    });
+  });
+
+  function addToItinerary(place) {
+    if (!itinerary.includes(place)) {
+      itinerary.push(place);
+      itineraryBox.innerText = itinerary.join(", ");
+    }
+  }
+
+  document.querySelectorAll(".budget-card").forEach(card => {
+    card.addEventListener("click", () => {
+      document.querySelectorAll(".budget-card")
+        .forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+    });
+  });
+
+  function calculateDays() {
+    if (!startDate.value || !endDate.value) {
+      durationBox.innerText = "Select dates to see total days.";
+      return;
+    }
+
+    const start = new Date(startDate.value);
+    const end = new Date(endDate.value);
+
+    if (end < start) {
+      durationBox.innerText = "End date must be after start date.";
+      return;
+    }
+
+    const days = Math.floor((end - start) / (1000 * 60 * 60 * 24)) + 1;
+    durationBox.innerText = `${days} days trip planned`;
+  }
+
+  startDate.addEventListener("change", calculateDays);
+  endDate.addEventListener("change", calculateDays);
+
+  function toggleSeason() {
+    document.querySelector(".season-dropdown").classList.toggle("active");
+  }
+
+  function selectSeason(option) {
+    document.querySelector(".season-selected").innerHTML =
+      option.innerText + " <span>▾</span>";
+    document.querySelector(".season-dropdown").classList.remove("active");
+  }
+
+  document.addEventListener("click", function (e) {
+    const dropdown = document.querySelector(".season-dropdown");
+    if (!dropdown.contains(e.target)) {
+      dropdown.classList.remove("active");
+    }
+  });
+
+  function getSelectedBudget() {
+  const active = document.querySelector(".budget-card.active");
+  return active ? active.innerText : null;
+}
+
+function getSelectedTravelTypes() {
+  const checked = document.querySelectorAll(".checkbox-group input:checked + span");
+  return Array.from(checked).map(el => el.innerText);
+}
+
+document.querySelector("button").addEventListener("click", generateItinerary);
+
+function generateItinerary() {
+  const destination = locationSelect.value;
+  const budget = getSelectedBudget();
+  const travelTypes = getSelectedTravelTypes();
+
+  if (!destination || !budget || travelTypes.length === 0) {
+    alert("Please fill all required details");
+    return;
+  }
+
+  let activities = [];
+
+  travelTypes.forEach(type => {
+    const data =
+      itineraryData[destination]?.[budget]?.[type];
+
+    if (data) {
+      activities = activities.concat(data);
+    }
+  });
+
+  if (activities.length === 0) {
+    itineraryBox.innerHTML = "No itinerary available for selected options.";
+    return;
+  }
+
+  showDayWiseItinerary(activities);
+}
+
+
+function showDayWiseItinerary(activities) {
+  const daysText = durationBox.innerText;
+  const days = parseInt(daysText);
+
+  if (isNaN(days)) {
+    alert("Please select travel dates");
+    return;
+  }
+
+  itineraryBox.innerHTML = "";
+
+  for (let i = 0; i < days; i++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.className = "place-chip";
+    dayDiv.style.marginBottom = "10px";
+
+    dayDiv.innerText =
+      `Day ${i + 1}: ${activities[i % activities.length]}`;
+
+    itineraryBox.appendChild(dayDiv);
+  }
+}
+
+
+
+</script>
+
+</body>
+</html>

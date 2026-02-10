@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Navio | Smart Travel Planner</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  font-family:Poppins,sans-serif;
+  background:#f8fafc;
+  padding:40px;
+}
+.container{
+  max-width:950px;
+  margin:auto;
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+h1{text-align:center;margin-bottom:30px;}
+.section{margin-bottom:25px;}
+label{font-weight:500;display:block;margin-bottom:8px;}
+select,input{width:100%;padding:12px;border-radius:10px;border:1px solid #cbd5e1;}
+
+.budgets,.types{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.budget{
+  flex:1;
+  text-align:center;
+  padding:14px;
+  background:#e2e8f0;
+  border-radius:12px;
+  cursor:pointer;
+}
+.budget.active{background:#f97316;color:#fff;}
+
+.types label{
+  background:#e2e8f0;
+  padding:8px 16px;
+  border-radius:20px;
+  cursor:pointer;
+}
+.types input{display:none;}
+.types input:checked + span{
+  background:#0f172a;
+  color:white;
+  padding:8px 16px;
+  border-radius:20px;
+}
+
+button{
+  width:100%;
+  padding:16px;
+  background:#f97316;
+  color:white;
+  border:none;
+  border-radius:14px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.result{
+  margin-top:30px;
+  background:#f1f5f9;
+  padding:20px;
+  border-radius:16px;
+}
+.day{
+  background:white;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:20px;
+}
+.slot{margin-top:8px;font-size:14px;}
+.slot span{font-weight:600;}
+.note{
+  font-size:13px;
+  margin-bottom:15px;
+  color:#475569;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Plan Your Trip with Navio</h1>
+
+<!-- Destination -->
+<div class="section">
+<label>Destination</label>
+<select id="destination">
+<option value="">Select</option>
+<option>Goa</option>
+<option>Manali</option>
+<option>Delhi</option>
+</select>
+</div>
+
+<!-- Budget -->
+<div class="section">
+<label>Budget</label>
+<div class="budgets">
+<div class="budget">Low</div>
+<div class="budget">Mid</div>
+<div class="budget">High</div>
+</div>
+</div>
+
+<!-- Dates -->
+<div class="section">
+<label>Travel Dates</label>
+<input type="date" id="start"><br><br>
+<input type="date" id="end">
+</div>
+
+<!-- Season -->
+<div class="section">
+<label>Season</label>
+<select id="season">
+<option>Summer</option>
+<option>Winter</option>
+<option>Monsoon</option>
+<option>Spring</option>
+<option>Autumn</option>
+</select>
+</div>
+
+<!-- Travel Type -->
+<div class="section">
+<label>Type of Travel</label>
+<div class="types">
+<label><input type="checkbox"><span>Adventure</span></label>
+<label><input type="checkbox"><span>Nature</span></label>
+<label><input type="checkbox"><span>Culture</span></label>
+<label><input type="checkbox"><span>Relaxation</span></label>
+</div>
+</div>
+
+<button onclick="generateItinerary()">Generate My Itinerary</button>
+
+<div id="output" class="result"></div>
+</div>
+
+<script>
+// ========== SMART ITINERARY DATABASE ==========
+const DB = {
+Goa:{
+Adventure:[
+{m:"9:00 AM – Water Sports at Baga",a:"2:00 PM – Lunch",e:"6:00 PM – Sunset at Vagator"},
+{m:"8:30 AM – Scuba Diving",a:"3:00 PM – Rest",e:"7:00 PM – Anjuna Night Market"}
+],
+Nature:[
+{m:"9:00 AM – Dudhsagar Trek",a:"3:00 PM – Lunch",e:"6:30 PM – Spice Plantation"},
+{m:"10:00 AM – Butterfly Beach",a:"2:30 PM – Relax",e:"7:00 PM – Beach Walk"}
+],
+Culture:[
+{m:"10:00 AM – Old Goa Churches",a:"2:00 PM – Fontainhas",e:"6:00 PM – River Cruise"}
+],
+Relaxation:[
+{m:"9:30 AM – Resort Leisure",a:"2:00 PM – Spa",e:"7:30 PM – Candle Dinner"}
+]
+},
+
+Manali:{
+Adventure:[
+{m:"8:00 AM – Solang Valley",a:"2:00 PM – Lunch",e:"6:00 PM – Mall Road"},
+{m:"7:30 AM – Paragliding",a:"3:00 PM – Rest",e:"7:00 PM – Café"}
+],
+Nature:[
+{m:"9:00 AM – Jogini Waterfall",a:"2:30 PM – Rest",e:"6:30 PM – Riverside Walk"},
+{m:"10:00 AM – Van Vihar",a:"2:00 PM – Lunch",e:"7:00 PM – Scenic Sunset"}
+],
+Relaxation:[
+{m:"9:30 AM – Hot Springs",a:"2:00 PM – Rest",e:"7:00 PM – Quiet Café"}
+]
+},
+
+Delhi:{
+Culture:[
+{m:"9:00 AM – Red Fort",a:"1:30 PM – Lunch",e:"6:00 PM – India Gate"},
+{m:"10:00 AM – Qutub Minar",a:"2:30 PM – Humayun’s Tomb",e:"7:00 PM – Light Show"}
+],
+Nature:[
+{m:"8:30 AM – Lodhi Garden",a:"1:30 PM – Lunch",e:"6:00 PM – Sunder Nursery"}
+]
+}
+};
+
+// ========== BUDGET ==========
+let selectedBudget=null;
+document.querySelectorAll(".budget").forEach(b=>{
+b.onclick=()=>{
+document.querySelectorAll(".budget").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+selectedBudget=b.innerText;
+};
+});
+
+// ========== MAIN LOGIC ==========
+function generateItinerary(){
+const dest=document.getElementById("destination").value;
+const start=document.getElementById("start").value;
+const end=document.getElementById("end").value;
+const season=document.getElementById("season").value;
+const output=document.getElementById("output");
+
+const types=[...document.querySelectorAll(".types input:checked + span")]
+.map(x=>x.innerText);
+
+if(!dest||!start||!end||!selectedBudget||types.length===0){
+alert("Please fill all details");
+return;
+}
+
+const days=Math.floor((new Date(end)-new Date(start))/(1000*60*60*24))+1;
+
+let plans=[];
+types.forEach(t=>{
+if(DB[dest][t]) plans=plans.concat(DB[dest][t]);
+});
+
+output.innerHTML=`
+<div class="note">
+Optimized for <b>${season}</b> travel · Budget: <b>${selectedBudget}</b>
+</div>
+`;
+
+for(let i=0;i<days;i++){
+const plan=plans[i];
+const div=document.createElement("div");
+div.className="day";
+
+if(plan){
+div.innerHTML=`
+<h3>Day ${i+1}</h3>
+<div class="slot"><span>Morning:</span> ${plan.m}</div>
+<div class="slot"><span>Afternoon:</span> ${plan.a}</div>
+<div class="slot"><span>Evening:</span> ${plan.e}</div>
+`;
+}else{
+div.innerHTML=`
+<h3>Day ${i+1}</h3>
+<div class="slot">Leisure / Local Exploration / Rest Day</div>
+`;
+}
+
+output.appendChild(div);
+}
+}
+</script>
+
+</body>
+</html>

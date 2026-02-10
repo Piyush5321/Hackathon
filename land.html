@@ -1,45 +1,50 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Navio Landing Page</title>
-    <link rel="stylesheet" href="land.css">
-</head>
-<body>
+    <link rel="stylesheet" href="land.css" />
+  </head>
+  <body>
     <!-- Logo -->
     <div class="logo-container">
-        <img src="images/naviologo.png" alt="Navio Logo" class="logo">
+      <img src="/images/naviologo.png" alt="Navio Logo" class="logo" />
     </div>
 
     <!-- Background Video -->
     <video id="bgVideo" class="bg-video" muted autoplay>
-        <source src="images/bg video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+      <source src="/images/bg video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
     </video>
 
     <!-- Get Started Button (hidden initially) -->
     <div id="ctaButton" class="cta-container hidden">
-        <button class="get-started-btn">Get Started</button>
+      <button class="get-started-btn">Get Started</button>
     </div>
 
     <script>
-        const video = document.getElementById('bgVideo');
-        const ctaButton = document.getElementById('ctaButton');
+      const video = document.getElementById("bgVideo");
+      const ctaButton = document.getElementById("ctaButton");
 
-        // Show button after 2.3 seconds
-        video.addEventListener('timeupdate', function() {
-            if (video.currentTime >= 2.3 && ctaButton.classList.contains('hidden')) {
-                ctaButton.classList.remove('hidden');
-                ctaButton.classList.add('show');
-            }
-        });
+      // Show button after 2.3 seconds
+      video.addEventListener("timeupdate", function () {
+        if (
+          video.currentTime >= 2.3 &&
+          ctaButton.classList.contains("hidden")
+        ) {
+          ctaButton.classList.remove("hidden");
+          ctaButton.classList.add("show");
+        }
+      });
 
-        // Optional: Add click handler for the button
-        document.querySelector('.get-started-btn').addEventListener('click', function() {
-            alert('Get Started clicked! Add your navigation logic here.');
-            // window.location.href = 'your-next-page.html';
+      // Optional: Add click handler for the button
+      document
+        .querySelector(".get-started-btn")
+        .addEventListener("click", function () {
+          alert("Get Started clicked! Add your navigation logic here.");
+          // window.location.href = 'your-next-page.html';
         });
     </script>
-</body>
+  </body>
 </html>
