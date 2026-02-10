@@ -427,6 +427,82 @@
       background: linear-gradient(135deg, #8e6ddf, #f18bbf);
     }
 
+    /* AUTH MODAL */
+    .auth-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .auth-modal.show {
+      display: flex;
+    }
+
+    .auth-modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .auth-modal-content h2 {
+      color: #d32f2f;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .auth-modal-content p {
+      color: #d32f2f;
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .auth-modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .auth-modal-btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .auth-modal-btn.cancel {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .auth-modal-btn.cancel:hover {
+      background: #e0e0e0;
+    }
+
+    .auth-modal-btn.login {
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+    }
+
+    .auth-modal-btn.login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
+    }
+
     .how-it-works {
       background: rgba(162, 47, 112, 0.7);
       padding: 60px 40px;
@@ -609,7 +685,7 @@
     </div>
 
     <div class="nav-right">
-      <button class="nav-btn" onclick="window.location.href='form/index.html'">New Trip</button>
+      <button class="nav-btn" onclick="checkAuthAndNavigate('form/index.html')">New Trip</button>
       <button class="nav-btn" id="authButton" onclick="window.location.href='login/login.html'">Login / Signup</button>
     </div>
   </div>
@@ -1103,20 +1179,20 @@ Day 5:
       <h2>Customize Your Itinerary</h2>
       <section class="custom-trip">
         <div class="custom-card">
-          <h2>Build Your Perfect Trip ✨</h2>
+          <h2>Build Your Perfect Trip </h2>
           <p>
             Tell us your preferences and we'll create a travel plan
             that matches your vibe, budget, and time.
           </p>
 
           <div class="trip-tags">
-            <span>📍 Destination</span>
-            <span>📅 Duration</span>
-            <span>💰 Budget</span>
-            <span>🎒 Travel Style</span>
+            <span> Destination</span>
+            <span> Duration</span>
+            <span> Budget</span>
+            <span> Travel Style</span>
           </div>
 
-          <button onclick="window.location.href='form/index.html'">
+          <button onclick="checkAuthAndNavigate('form/index.html')">
             Customize My Trip
           </button>
         </div>
@@ -1176,6 +1252,18 @@ Day 5:
 
   </div>
 
+  <!-- AUTH MODAL -->
+  <div class="auth-modal" id="authModal">
+    <div class="auth-modal-content">
+      <h2>Login Required</h2>
+      <p>You have to log in to access this feature</p>
+      <div class="auth-modal-buttons">
+        <button class="auth-modal-btn cancel" onclick="closeAuthModal()">Cancel</button>
+        <button class="auth-modal-btn login" onclick="window.location.href='login/login.html'">Log In</button>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-container">
@@ -1228,6 +1316,31 @@ Day 5:
   <script type="module">
     import { auth } from "./login/firebase.js";
     import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Authentication check function
+    window.checkAuthAndNavigate = function(url) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is logged in
+          window.location.href = url;
+        } else {
+          // User is not logged in - show modal
+          document.getElementById("authModal").classList.add("show");
+        }
+      });
+    };
+
+    // Close auth modal
+    window.closeAuthModal = function() {
+      document.getElementById("authModal").classList.remove("show");
+    };
+
+    // Close modal when clicking outside
+    document.getElementById("authModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        this.classList.remove("show");
+      }
+    });
 
     // Logout function
     async function handleLogout() {
