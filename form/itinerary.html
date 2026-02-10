@@ -16,13 +16,15 @@
       }
       body {
         font-family: Poppins, system-ui, Arial;
-        background: #f7f9fc;
+        background: linear-gradient(135deg, rgba(106, 90, 205, 0.7), rgba(255, 140, 148, 0.7)), url('../images/bgimg.jpg') center/cover no-repeat fixed;
         padding: 24px;
+        min-height: 100vh;
       }
       .card {
         max-width: 900px;
         margin: 0 auto;
-        background: #fff;
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(10px);
         padding: 20px;
         border-radius: 12px;
         box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
@@ -41,21 +43,30 @@
         margin-bottom: 12px;
       }
       .btn {
-        background: #667eea;
+        background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
         color: #fff;
         padding: 10px 12px;
         border-radius: 8px;
         border: none;
         cursor: pointer;
         font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
       }
       .btn.ghost {
-        background: #eef2ff;
-        color: #25308b;
+        background: rgba(255, 255, 255, 0.65);
+        color: #8e6ddf;
+        backdrop-filter: blur(10px);
       }
       .day {
-        border-left: 4px solid #667eea;
-        background: #fbfdff;
+        border-left: 4px solid #8e6ddf;
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(8px);
         padding: 12px;
         border-radius: 8px;
         margin-bottom: 10px;
@@ -76,10 +87,11 @@
         flex: 1;
       }
       .act .activity {
-        background: #fff;
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(8px);
         padding: 8px;
         border-radius: 6px;
-        border: 1px solid #e6eefb;
+        border: 1px solid rgba(142, 109, 223, 0.2);
       }
       .small {
         font-size: 0.85rem;
@@ -132,7 +144,7 @@
           return;
         }
         const m = it.meta;
-        metaDiv.innerHTML = `📍 <strong>${m.destination}</strong> · 💰 ${m.budget} · 🌤️ ${m.season} · 🗓️ ${m.startDate} to ${m.endDate} (${m.totalDays} days) · 🧭 ${m.tripType}`;
+        metaDiv.innerHTML = `<strong>${m.destination}</strong> ·  ${m.budget} ·  ${m.season} ·  ${m.startDate} to ${m.endDate} (${m.totalDays} days) ·  ${m.tripType}`;
 
         // group by day
         const byDay = {};
