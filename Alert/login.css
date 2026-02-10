@@ -33,7 +33,7 @@ body {
     width: 40px;
     height: 40px;
     padding: 0;
-    background: rgba(255, 140, 0, 0.9);
+    background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
     color: white;
     border: none;
     border-radius: 50%;
@@ -44,13 +44,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+    box-shadow: 0 4px 12px rgba(142, 109, 223, 0.4);
 }
 
 .back-btn:hover {
-    background: rgba(255, 107, 0, 1);
+    background: linear-gradient(135deg, #7d5cc8 0%, #e07aae 100%);
     transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(255, 140, 0, 0.6);
+    box-shadow: 0 6px 16px rgba(142, 109, 223, 0.6);
 }
 
 .container h2 {
@@ -115,7 +115,7 @@ textarea::placeholder {
 button {
     width: 100%;
     padding: 24px;
-    background: linear-gradient(135deg, #ff8c00 0%, #ff6f00 100%);
+    background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
     color: white;
     border: none;
     border-radius: 14px;
@@ -124,12 +124,12 @@ button {
     font-size: 21px;
     font-weight: bold;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
 }
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(255, 140, 0, 0.4);
+    box-shadow: 0 6px 25px rgba(142, 109, 223, 0.4);
 }
 
 button:active {
