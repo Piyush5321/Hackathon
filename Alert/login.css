@@ -27,9 +27,9 @@ body {
 
 /* Back button */
 .back-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+    position: fixed;
+    top: 80px;
+    left: 30px;
     width: 40px;
     height: 40px;
     padding: 0;
@@ -44,13 +44,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(142, 109, 223, 0.4);
+    box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+    z-index: 100;
 }
 
 .back-btn:hover {
-    background: linear-gradient(135deg, #7d5cc8 0%, #e07aae 100%);
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(142, 109, 223, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
 }
 
 .container h2 {

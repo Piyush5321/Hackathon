@@ -34,20 +34,29 @@
       width: 1100px;
       box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       position: relative;
+      margin-top: 40px;
     }
 
     .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
+      position: fixed;
+      top: 80px;
+      left: 30px;
       width: 40px;
       height: 40px;
-      background: rgba(255,140,0,0.9);
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
       color: white;
       border: none;
       border-radius: 50%;
       cursor: pointer;
       font-size: 18px;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
     }
 
     h2{
@@ -150,8 +159,6 @@ from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const list = document.getElementById("alertsList");
 
-
-// 🧠 AGENTIC AI DECISION
 function getClass(category){
     if(category==="Scam/Fraud" || category==="Safety Issue") return "alert-card high";
     if(category==="Weather") return "alert-card weather";
@@ -159,73 +166,112 @@ function getClass(category){
 }
 
 function getMessage(category){
-    if(category==="Scam/Fraud") return "🔴 High scam risk here";
-    if(category==="Safety Issue") return "🔴 Safety warning";
-    if(category==="Weather") return "🌧 Weather warning";
-    if(category==="Overpricing") return "💰 Overpricing reported";
-    return "🟢 Area looks normal";
+    if(category==="Scam/Fraud") return "High scam risk here";
+    if(category==="Safety Issue") return "Safety warning";
+    if(category==="Weather") return "Weather warning";
+    if(category==="Overpricing") return "Overpricing reported";
+    return "Area looks normal";
+}
+
+// format time
+function formatTime(ts){
+    if(!ts) return "";
+    const d = new Date(ts);
+    return d.toLocaleString();
 }
 
 
-// LOAD ALL
+// LOAD ALL ALERTS
 window.loadAlerts = async function(){
 
-    const q = query(collection(db,"alerts"), orderBy("time","desc"));
-    const snap = await getDocs(q);
+    list.innerHTML = "<div class='alert-card'>Loading alerts...</div>";
 
-    list.innerHTML="";
+    try{
+        const q = query(collection(db,"alerts"), orderBy("time","desc"));
+        const snap = await getDocs(q);
 
-    snap.forEach(doc=>{
-        const data = doc.data();
+        list.innerHTML="";
 
-        list.innerHTML += `
-        <div class="${getClass(data.category)}">
-            <b>📍 Location:</b> ${data.location || "-"}<br>
-            <b>🏷 Landmark:</b> ${data.landmark || "-"}<br>
-            <b>🚨 Category:</b> ${data.category || "-"}<br>
-            <b>📝 Details:</b> ${data.details || "-"}<br><br>
-            <b>${getMessage(data.category)}</b>
-        </div>
-        `;
-    });
+        if(snap.empty){
+            list.innerHTML = "<div class='alert-card'>No alerts yet</div>";
+            return;
+        }
+
+        snap.forEach(doc=>{
+            const data = doc.data();
+
+            list.innerHTML += `
+            <div class="${getClass(data.category)}">
+                <b>Location:</b> ${data.location || "-"}<br>
+                <b>Landmark:</b> ${data.landmark || "-"}<br>
+                <b>Category:</b> ${data.category || "-"}<br>
+                <b>Details:</b> ${data.details || "-"}<br>
+                <b>Time:</b> ${formatTime(data.time)}<br><br>
+                <b>${getMessage(data.category)}</b>
+            </div>
+            `;
+        });
+
+    }catch(err){
+        list.innerHTML = "<div class='alert-card'>Error loading alerts</div>";
+        console.error(err);
+    }
 }
 
 
-// SEARCH
+
+// SEARCH ALERTS
 window.searchAlerts = async function(){
 
-    const text = document.getElementById("searchInput").value;
+    const text = document.getElementById("searchInput").value.trim().toLowerCase();
 
-    const q = query(collection(db,"alerts"),
-    where("location","==",text));
-
-    const snap = await getDocs(q);
-
-    list.innerHTML="";
-
-    if(snap.empty){
-        list.innerHTML="<div class='alert-card'>No alerts found</div>";
+    if(text===""){
+        loadAlerts();
         return;
     }
 
-    snap.forEach(doc=>{
-        const data = doc.data();
+    list.innerHTML = "<div class='alert-card'>Searching...</div>";
 
-        list.innerHTML += `
-        <div class="${getClass(data.category)}">
-            <b>📍 Location:</b> ${data.location}<br>
-            <b>🏷 Landmark:</b> ${data.landmark}<br>
-            <b>🚨 Category:</b> ${data.category}<br>
-            <b>📝 Details:</b> ${data.details}<br><br>
-            <b>${getMessage(data.category)}</b>
-        </div>
-        `;
-    });
+    try{
+        const q = query(collection(db,"alerts"), orderBy("time","desc"));
+        const snap = await getDocs(q);
+
+        list.innerHTML="";
+        let found=false;
+
+        snap.forEach(doc=>{
+            const data = doc.data();
+
+            if(data.location && data.location.toLowerCase().includes(text)){
+                found=true;
+
+                list.innerHTML += `
+                <div class="${getClass(data.category)}">
+                    <b>Location:</b> ${data.location}<br>
+                    <b>Landmark:</b> ${data.landmark}<br>
+                    <b>Category:</b> ${data.category}<br>
+                    <b>Details:</b> ${data.details}<br>
+                    <b>Time:</b> ${formatTime(data.time)}<br><br>
+                    <b>${getMessage(data.category)}</b>
+                </div>
+                `;
+            }
+        });
+
+        if(!found){
+            list.innerHTML = "<div class='alert-card'>No alerts found</div>";
+        }
+
+    }catch(err){
+        list.innerHTML = "<div class='alert-card'>Search error</div>";
+        console.error(err);
+    }
 }
 
 loadAlerts();
 
 </script>
+
 
 </body>
 </html>

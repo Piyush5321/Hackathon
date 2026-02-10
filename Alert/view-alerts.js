@@ -64,10 +64,10 @@ window.searchAlerts = async function () {
         border-radius:10px;
         border-left:6px solid red;
         ">
-            <b>📍 Location:</b> ${data.location || "-"}<br>
-            <b>🏷 Landmark:</b> ${data.landmark || "-"}<br>
-            <b>🚨 Category:</b> ${data.category || "-"}<br>
-            <b>📝 Details:</b> ${data.details || "-"}
+            <b> Location:</b> ${data.location || "-"}<br>
+            <b> Landmark:</b> ${data.landmark || "-"}<br>
+            <b> Category:</b> ${data.category || "-"}<br>
+            <b> Details:</b> ${data.details || "-"}
         </div>
         `;
     });
