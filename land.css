@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+}
+
+/* Background Video */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Logo */
+.logo-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 90;
+    width: 280px;
+    height: 200px;
+    padding: 25px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Get Started Button */
+.cta-container {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+}
+
+.cta-container.hidden {
+    display: none;
+}
+
+.cta-container.show {
+    display: block;
+    opacity: 1;
+}
+
+.get-started-btn {
+    padding: 20px 60px;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff8c00;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.get-started-btn:hover {
+    background-color: #ff6f00;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.6);
+}
+
+.get-started-btn:active {
+    transform: scale(0.98);
+}
