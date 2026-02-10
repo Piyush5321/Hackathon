@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Itinerary - Navio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Poppins, system-ui, Arial;
+        background: #f7f9fc;
+        padding: 24px;
+      }
+      .card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+      h1 {
+        font-size: 1.6rem;
+        margin-bottom: 6px;
+      }
+      .meta {
+        color: #555;
+        margin-bottom: 14px;
+      }
+      .controls {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 12px;
+      }
+      .btn {
+        background: #667eea;
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .btn.ghost {
+        background: #eef2ff;
+        color: #25308b;
+      }
+      .day {
+        border-left: 4px solid #667eea;
+        background: #fbfdff;
+        padding: 12px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+      }
+      .day-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .act {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .act .info {
+        flex: 1;
+      }
+      .act .activity {
+        background: #fff;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #e6eefb;
+      }
+      .small {
+        font-size: 0.85rem;
+        color: #666;
+      }
+      .editable {
+        outline: none;
+      }
+      @media print {
+        .controls,
+        .btn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Itinerary</h1>
+      <div id="meta" class="meta">Loading...</div>
+      <div class="controls">
+        <button class="btn" id="saveBtn">Save changes</button>
+        <button class="btn ghost" id="backBtn">Back</button>
+        <button class="btn" id="printBtn">Print</button>
+        <button class="btn ghost" id="exportBtn">Export JSON</button>
+      </div>
+
+      <div id="itineraryList"></div>
+    </div>
+
+    <script>
+      function loadItinerary() {
+        const raw = sessionStorage.getItem("itinerary");
+        if (!raw) return null;
+        try {
+          return JSON.parse(raw);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function render() {
+        const it = loadItinerary();
+        const metaDiv = document.getElementById("meta");
+        const list = document.getElementById("itineraryList");
+        if (!it) {
+          metaDiv.textContent =
+            "No itinerary found. Return to planner and generate one.";
+          list.innerHTML = "";
+          return;
+        }
+        const m = it.meta;
+        metaDiv.innerHTML = `📍 <strong>${m.destination}</strong> · 💰 ${m.budget} · 🌤️ ${m.season} · 🗓️ ${m.startDate} to ${m.endDate} (${m.totalDays} days) · 🧭 ${m.tripType}`;
+
+        // group by day
+        const byDay = {};
+        it.activities.forEach((a) => {
+          byDay[a.day] = byDay[a.day] || [];
+          byDay[a.day].push(a);
+        });
+
+        let html = "";
+        Object.keys(byDay)
+          .sort((a, b) => a - b)
+          .forEach((dayNum) => {
+            html += `<div class="day" data-day="${dayNum}">
+                    <div class="day-header"><div>Day ${dayNum}</div><div class="small">${byDay[dayNum][0].date || ""}</div></div>`;
+            byDay[dayNum].forEach((act, idx) => {
+              html += `<div class="act">
+                      <div class="info">
+                        <div class="small">${act.travel_type} · ${act.time_slot}</div>
+                        <div class="activity editable" contenteditable="true" data-idx="${act.day}-${idx}">${act.activity}</div>
+                      </div>
+                    </div>`;
+            });
+            html += `</div>`;
+          });
+
+        list.innerHTML = html;
+      }
+
+      function saveChanges() {
+        const it = loadItinerary();
+        if (!it) return alert("No itinerary to save");
+        // read contenteditable fields and update activities
+        const editable = document.querySelectorAll(".activity.editable");
+        editable.forEach((el) => {
+          const key = el.getAttribute("data-idx");
+          const parts = key.split("-");
+          const day = parseInt(parts[0], 10);
+          const idx = parseInt(parts[1], 10);
+          // find matching activity (first matching day and index occurrence)
+          let count = -1;
+          for (let i = 0; i < it.activities.length; i++) {
+            if (it.activities[i].day === day) {
+              count++;
+              if (count === idx) {
+                it.activities[i].activity = el.textContent.trim();
+                break;
+              }
+            }
+          }
+        });
+        sessionStorage.setItem("itinerary", JSON.stringify(it));
+        alert("Saved to sessionStorage");
+      }
+
+      document.getElementById("saveBtn").addEventListener("click", saveChanges);
+      document.getElementById("backBtn").addEventListener("click", () => {
+        window.history.back();
+      });
+      document.getElementById("printBtn").addEventListener("click", () => {
+        window.print();
+      });
+      document.getElementById("exportBtn").addEventListener("click", () => {
+        const it = loadItinerary();
+        if (!it) return alert("No itinerary");
+        const blob = new Blob([JSON.stringify(it, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "itinerary.json";
+        a.click();
+        URL.revokeObjectURL(url);
+      });
+
+      render();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,721 @@
+﻿destination,budget,season,travel_type,day,time_slot,activity
+Goa,Low,Summer,Adventure,1,Morning,Adventure activity 1 (Low)
+Goa,Low,Summer,Adventure,1,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,1,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,1,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,1,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,1,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,2,Morning,Adventure activity 2 (Low)
+Goa,Low,Summer,Adventure,2,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,2,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,2,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,2,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,2,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,3,Morning,Adventure activity 3 (Low)
+Goa,Low,Summer,Adventure,3,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,3,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,3,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,3,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,3,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,4,Morning,Adventure activity 4 (Low)
+Goa,Low,Summer,Adventure,4,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,4,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,4,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,4,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,4,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,5,Morning,Adventure activity 5 (Low)
+Goa,Low,Summer,Adventure,5,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,5,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,5,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,5,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,5,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,6,Morning,Adventure activity 6 (Low)
+Goa,Low,Summer,Adventure,6,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,6,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,6,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,6,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,6,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,7,Morning,Adventure activity 7 (Low)
+Goa,Low,Summer,Adventure,7,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,7,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,7,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,7,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,7,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,8,Morning,Adventure activity 8 (Low)
+Goa,Low,Summer,Adventure,8,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,8,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,8,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,8,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,8,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,9,Morning,Adventure activity 9 (Low)
+Goa,Low,Summer,Adventure,9,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,9,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,9,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,9,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,9,Evening,Sunset & Dinner
+Goa,Low,Summer,Adventure,10,Morning,Adventure activity 10 (Low)
+Goa,Low,Summer,Adventure,10,Afternoon,Lunch & Rest
+Goa,Low,Summer,Adventure,10,Evening,Beach / Night activity
+Goa,Low,Summer,Relaxation,10,Morning,Resort Leisure
+Goa,Low,Summer,Relaxation,10,Afternoon,Spa / Relax
+Goa,Low,Summer,Relaxation,10,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,1,Morning,Adventure activity 1 (Low)
+Goa,Low,Winter,Adventure,1,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,1,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,1,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,1,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,1,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,2,Morning,Adventure activity 2 (Low)
+Goa,Low,Winter,Adventure,2,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,2,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,2,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,2,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,2,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,3,Morning,Adventure activity 3 (Low)
+Goa,Low,Winter,Adventure,3,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,3,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,3,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,3,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,3,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,4,Morning,Adventure activity 4 (Low)
+Goa,Low,Winter,Adventure,4,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,4,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,4,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,4,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,4,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,5,Morning,Adventure activity 5 (Low)
+Goa,Low,Winter,Adventure,5,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,5,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,5,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,5,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,5,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,6,Morning,Adventure activity 6 (Low)
+Goa,Low,Winter,Adventure,6,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,6,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,6,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,6,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,6,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,7,Morning,Adventure activity 7 (Low)
+Goa,Low,Winter,Adventure,7,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,7,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,7,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,7,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,7,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,8,Morning,Adventure activity 8 (Low)
+Goa,Low,Winter,Adventure,8,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,8,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,8,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,8,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,8,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,9,Morning,Adventure activity 9 (Low)
+Goa,Low,Winter,Adventure,9,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,9,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,9,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,9,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,9,Evening,Sunset & Dinner
+Goa,Low,Winter,Adventure,10,Morning,Adventure activity 10 (Low)
+Goa,Low,Winter,Adventure,10,Afternoon,Lunch & Rest
+Goa,Low,Winter,Adventure,10,Evening,Beach / Night activity
+Goa,Low,Winter,Relaxation,10,Morning,Resort Leisure
+Goa,Low,Winter,Relaxation,10,Afternoon,Spa / Relax
+Goa,Low,Winter,Relaxation,10,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,1,Morning,Adventure activity 1 (Mid)
+Goa,Mid,Summer,Adventure,1,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,1,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,1,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,1,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,1,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,2,Morning,Adventure activity 2 (Mid)
+Goa,Mid,Summer,Adventure,2,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,2,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,2,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,2,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,2,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,3,Morning,Adventure activity 3 (Mid)
+Goa,Mid,Summer,Adventure,3,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,3,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,3,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,3,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,3,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,4,Morning,Adventure activity 4 (Mid)
+Goa,Mid,Summer,Adventure,4,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,4,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,4,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,4,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,4,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,5,Morning,Adventure activity 5 (Mid)
+Goa,Mid,Summer,Adventure,5,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,5,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,5,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,5,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,5,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,6,Morning,Adventure activity 6 (Mid)
+Goa,Mid,Summer,Adventure,6,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,6,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,6,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,6,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,6,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,7,Morning,Adventure activity 7 (Mid)
+Goa,Mid,Summer,Adventure,7,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,7,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,7,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,7,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,7,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,8,Morning,Adventure activity 8 (Mid)
+Goa,Mid,Summer,Adventure,8,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,8,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,8,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,8,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,8,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,9,Morning,Adventure activity 9 (Mid)
+Goa,Mid,Summer,Adventure,9,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,9,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,9,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,9,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,9,Evening,Sunset & Dinner
+Goa,Mid,Summer,Adventure,10,Morning,Adventure activity 10 (Mid)
+Goa,Mid,Summer,Adventure,10,Afternoon,Lunch & Rest
+Goa,Mid,Summer,Adventure,10,Evening,Beach / Night activity
+Goa,Mid,Summer,Relaxation,10,Morning,Resort Leisure
+Goa,Mid,Summer,Relaxation,10,Afternoon,Spa / Relax
+Goa,Mid,Summer,Relaxation,10,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,1,Morning,Adventure activity 1 (Mid)
+Goa,Mid,Winter,Adventure,1,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,1,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,1,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,1,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,1,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,2,Morning,Adventure activity 2 (Mid)
+Goa,Mid,Winter,Adventure,2,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,2,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,2,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,2,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,2,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,3,Morning,Adventure activity 3 (Mid)
+Goa,Mid,Winter,Adventure,3,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,3,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,3,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,3,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,3,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,4,Morning,Adventure activity 4 (Mid)
+Goa,Mid,Winter,Adventure,4,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,4,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,4,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,4,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,4,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,5,Morning,Adventure activity 5 (Mid)
+Goa,Mid,Winter,Adventure,5,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,5,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,5,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,5,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,5,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,6,Morning,Adventure activity 6 (Mid)
+Goa,Mid,Winter,Adventure,6,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,6,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,6,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,6,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,6,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,7,Morning,Adventure activity 7 (Mid)
+Goa,Mid,Winter,Adventure,7,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,7,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,7,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,7,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,7,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,8,Morning,Adventure activity 8 (Mid)
+Goa,Mid,Winter,Adventure,8,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,8,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,8,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,8,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,8,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,9,Morning,Adventure activity 9 (Mid)
+Goa,Mid,Winter,Adventure,9,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,9,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,9,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,9,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,9,Evening,Sunset & Dinner
+Goa,Mid,Winter,Adventure,10,Morning,Adventure activity 10 (Mid)
+Goa,Mid,Winter,Adventure,10,Afternoon,Lunch & Rest
+Goa,Mid,Winter,Adventure,10,Evening,Beach / Night activity
+Goa,Mid,Winter,Relaxation,10,Morning,Resort Leisure
+Goa,Mid,Winter,Relaxation,10,Afternoon,Spa / Relax
+Goa,Mid,Winter,Relaxation,10,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,1,Morning,Adventure activity 1 (High)
+Goa,High,Summer,Adventure,1,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,1,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,1,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,1,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,1,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,2,Morning,Adventure activity 2 (High)
+Goa,High,Summer,Adventure,2,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,2,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,2,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,2,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,2,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,3,Morning,Adventure activity 3 (High)
+Goa,High,Summer,Adventure,3,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,3,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,3,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,3,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,3,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,4,Morning,Adventure activity 4 (High)
+Goa,High,Summer,Adventure,4,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,4,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,4,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,4,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,4,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,5,Morning,Adventure activity 5 (High)
+Goa,High,Summer,Adventure,5,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,5,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,5,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,5,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,5,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,6,Morning,Adventure activity 6 (High)
+Goa,High,Summer,Adventure,6,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,6,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,6,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,6,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,6,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,7,Morning,Adventure activity 7 (High)
+Goa,High,Summer,Adventure,7,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,7,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,7,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,7,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,7,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,8,Morning,Adventure activity 8 (High)
+Goa,High,Summer,Adventure,8,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,8,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,8,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,8,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,8,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,9,Morning,Adventure activity 9 (High)
+Goa,High,Summer,Adventure,9,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,9,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,9,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,9,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,9,Evening,Sunset & Dinner
+Goa,High,Summer,Adventure,10,Morning,Adventure activity 10 (High)
+Goa,High,Summer,Adventure,10,Afternoon,Lunch & Rest
+Goa,High,Summer,Adventure,10,Evening,Beach / Night activity
+Goa,High,Summer,Relaxation,10,Morning,Resort Leisure
+Goa,High,Summer,Relaxation,10,Afternoon,Spa / Relax
+Goa,High,Summer,Relaxation,10,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,1,Morning,Adventure activity 1 (High)
+Goa,High,Winter,Adventure,1,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,1,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,1,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,1,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,1,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,2,Morning,Adventure activity 2 (High)
+Goa,High,Winter,Adventure,2,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,2,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,2,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,2,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,2,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,3,Morning,Adventure activity 3 (High)
+Goa,High,Winter,Adventure,3,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,3,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,3,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,3,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,3,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,4,Morning,Adventure activity 4 (High)
+Goa,High,Winter,Adventure,4,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,4,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,4,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,4,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,4,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,5,Morning,Adventure activity 5 (High)
+Goa,High,Winter,Adventure,5,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,5,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,5,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,5,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,5,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,6,Morning,Adventure activity 6 (High)
+Goa,High,Winter,Adventure,6,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,6,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,6,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,6,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,6,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,7,Morning,Adventure activity 7 (High)
+Goa,High,Winter,Adventure,7,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,7,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,7,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,7,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,7,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,8,Morning,Adventure activity 8 (High)
+Goa,High,Winter,Adventure,8,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,8,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,8,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,8,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,8,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,9,Morning,Adventure activity 9 (High)
+Goa,High,Winter,Adventure,9,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,9,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,9,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,9,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,9,Evening,Sunset & Dinner
+Goa,High,Winter,Adventure,10,Morning,Adventure activity 10 (High)
+Goa,High,Winter,Adventure,10,Afternoon,Lunch & Rest
+Goa,High,Winter,Adventure,10,Evening,Beach / Night activity
+Goa,High,Winter,Relaxation,10,Morning,Resort Leisure
+Goa,High,Winter,Relaxation,10,Afternoon,Spa / Relax
+Goa,High,Winter,Relaxation,10,Evening,Sunset & Dinner
+Delhi,Low,Summer,Culture,1,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,1,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,1,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,1,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,1,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,1,Evening,Sunset Point
+Delhi,Low,Summer,Culture,2,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,2,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,2,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,2,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,2,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,2,Evening,Sunset Point
+Delhi,Low,Summer,Culture,3,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,3,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,3,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,3,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,3,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,3,Evening,Sunset Point
+Delhi,Low,Summer,Culture,4,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,4,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,4,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,4,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,4,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,4,Evening,Sunset Point
+Delhi,Low,Summer,Culture,5,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,5,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,5,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,5,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,5,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,5,Evening,Sunset Point
+Delhi,Low,Summer,Culture,6,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,6,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,6,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,6,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,6,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,6,Evening,Sunset Point
+Delhi,Low,Summer,Culture,7,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,7,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,7,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,7,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,7,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,7,Evening,Sunset Point
+Delhi,Low,Summer,Culture,8,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,8,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,8,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,8,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,8,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,8,Evening,Sunset Point
+Delhi,Low,Summer,Culture,9,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,9,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,9,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,9,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,9,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,9,Evening,Sunset Point
+Delhi,Low,Summer,Culture,10,Morning,Historical Monument Visit
+Delhi,Low,Summer,Culture,10,Afternoon,Local Food & Museum
+Delhi,Low,Summer,Culture,10,Evening,City Walk / Market
+Delhi,Low,Summer,Nature,10,Morning,Garden / Park Visit
+Delhi,Low,Summer,Nature,10,Afternoon,Lunch & Relax
+Delhi,Low,Summer,Nature,10,Evening,Sunset Point
+Delhi,Low,Winter,Culture,1,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,1,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,1,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,1,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,1,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,1,Evening,Sunset Point
+Delhi,Low,Winter,Culture,2,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,2,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,2,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,2,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,2,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,2,Evening,Sunset Point
+Delhi,Low,Winter,Culture,3,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,3,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,3,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,3,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,3,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,3,Evening,Sunset Point
+Delhi,Low,Winter,Culture,4,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,4,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,4,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,4,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,4,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,4,Evening,Sunset Point
+Delhi,Low,Winter,Culture,5,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,5,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,5,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,5,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,5,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,5,Evening,Sunset Point
+Delhi,Low,Winter,Culture,6,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,6,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,6,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,6,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,6,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,6,Evening,Sunset Point
+Delhi,Low,Winter,Culture,7,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,7,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,7,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,7,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,7,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,7,Evening,Sunset Point
+Delhi,Low,Winter,Culture,8,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,8,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,8,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,8,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,8,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,8,Evening,Sunset Point
+Delhi,Low,Winter,Culture,9,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,9,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,9,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,9,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,9,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,9,Evening,Sunset Point
+Delhi,Low,Winter,Culture,10,Morning,Historical Monument Visit
+Delhi,Low,Winter,Culture,10,Afternoon,Local Food & Museum
+Delhi,Low,Winter,Culture,10,Evening,City Walk / Market
+Delhi,Low,Winter,Nature,10,Morning,Garden / Park Visit
+Delhi,Low,Winter,Nature,10,Afternoon,Lunch & Relax
+Delhi,Low,Winter,Nature,10,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,1,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,1,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,1,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,1,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,1,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,1,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,2,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,2,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,2,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,2,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,2,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,2,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,3,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,3,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,3,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,3,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,3,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,3,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,4,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,4,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,4,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,4,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,4,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,4,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,5,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,5,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,5,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,5,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,5,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,5,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,6,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,6,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,6,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,6,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,6,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,6,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,7,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,7,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,7,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,7,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,7,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,7,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,8,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,8,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,8,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,8,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,8,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,8,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,9,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,9,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,9,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,9,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,9,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,9,Evening,Sunset Point
+Delhi,Mid,Summer,Culture,10,Morning,Historical Monument Visit
+Delhi,Mid,Summer,Culture,10,Afternoon,Local Food & Museum
+Delhi,Mid,Summer,Culture,10,Evening,City Walk / Market
+Delhi,Mid,Summer,Nature,10,Morning,Garden / Park Visit
+Delhi,Mid,Summer,Nature,10,Afternoon,Lunch & Relax
+Delhi,Mid,Summer,Nature,10,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,1,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,1,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,1,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,1,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,1,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,1,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,2,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,2,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,2,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,2,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,2,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,2,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,3,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,3,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,3,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,3,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,3,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,3,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,4,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,4,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,4,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,4,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,4,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,4,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,5,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,5,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,5,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,5,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,5,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,5,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,6,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,6,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,6,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,6,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,6,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,6,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,7,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,7,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,7,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,7,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,7,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,7,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,8,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,8,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,8,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,8,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,8,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,8,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,9,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,9,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,9,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,9,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,9,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,9,Evening,Sunset Point
+Delhi,Mid,Winter,Culture,10,Morning,Historical Monument Visit
+Delhi,Mid,Winter,Culture,10,Afternoon,Local Food & Museum
+Delhi,Mid,Winter,Culture,10,Evening,City Walk / Market
+Delhi,Mid,Winter,Nature,10,Morning,Garden / Park Visit
+Delhi,Mid,Winter,Nature,10,Afternoon,Lunch & Relax
+Delhi,Mid,Winter,Nature,10,Evening,Sunset Point
+Delhi,High,Summer,Culture,1,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,1,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,1,Evening,City Walk / Market
+Delhi,High,Summer,Nature,1,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,1,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,1,Evening,Sunset Point
+Delhi,High,Summer,Culture,2,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,2,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,2,Evening,City Walk / Market
+Delhi,High,Summer,Nature,2,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,2,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,2,Evening,Sunset Point
+Delhi,High,Summer,Culture,3,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,3,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,3,Evening,City Walk / Market
+Delhi,High,Summer,Nature,3,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,3,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,3,Evening,Sunset Point
+Delhi,High,Summer,Culture,4,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,4,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,4,Evening,City Walk / Market
+Delhi,High,Summer,Nature,4,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,4,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,4,Evening,Sunset Point
+Delhi,High,Summer,Culture,5,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,5,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,5,Evening,City Walk / Market
+Delhi,High,Summer,Nature,5,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,5,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,5,Evening,Sunset Point
+Delhi,High,Summer,Culture,6,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,6,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,6,Evening,City Walk / Market
+Delhi,High,Summer,Nature,6,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,6,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,6,Evening,Sunset Point
+Delhi,High,Summer,Culture,7,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,7,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,7,Evening,City Walk / Market
+Delhi,High,Summer,Nature,7,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,7,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,7,Evening,Sunset Point
+Delhi,High,Summer,Culture,8,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,8,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,8,Evening,City Walk / Market
+Delhi,High,Summer,Nature,8,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,8,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,8,Evening,Sunset Point
+Delhi,High,Summer,Culture,9,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,9,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,9,Evening,City Walk / Market
+Delhi,High,Summer,Nature,9,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,9,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,9,Evening,Sunset Point
+Delhi,High,Summer,Culture,10,Morning,Historical Monument Visit
+Delhi,High,Summer,Culture,10,Afternoon,Local Food & Museum
+Delhi,High,Summer,Culture,10,Evening,City Walk / Market
+Delhi,High,Summer,Nature,10,Morning,Garden / Park Visit
+Delhi,High,Summer,Nature,10,Afternoon,Lunch & Relax
+Delhi,High,Summer,Nature,10,Evening,Sunset Point
+Delhi,High,Winter,Culture,1,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,1,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,1,Evening,City Walk / Market
+Delhi,High,Winter,Nature,1,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,1,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,1,Evening,Sunset Point
+Delhi,High,Winter,Culture,2,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,2,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,2,Evening,City Walk / Market
+Delhi,High,Winter,Nature,2,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,2,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,2,Evening,Sunset Point
+Delhi,High,Winter,Culture,3,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,3,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,3,Evening,City Walk / Market
+Delhi,High,Winter,Nature,3,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,3,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,3,Evening,Sunset Point
+Delhi,High,Winter,Culture,4,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,4,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,4,Evening,City Walk / Market
+Delhi,High,Winter,Nature,4,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,4,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,4,Evening,Sunset Point
+Delhi,High,Winter,Culture,5,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,5,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,5,Evening,City Walk / Market
+Delhi,High,Winter,Nature,5,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,5,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,5,Evening,Sunset Point
+Delhi,High,Winter,Culture,6,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,6,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,6,Evening,City Walk / Market
+Delhi,High,Winter,Nature,6,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,6,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,6,Evening,Sunset Point
+Delhi,High,Winter,Culture,7,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,7,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,7,Evening,City Walk / Market
+Delhi,High,Winter,Nature,7,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,7,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,7,Evening,Sunset Point
+Delhi,High,Winter,Culture,8,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,8,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,8,Evening,City Walk / Market
+Delhi,High,Winter,Nature,8,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,8,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,8,Evening,Sunset Point
+Delhi,High,Winter,Culture,9,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,9,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,9,Evening,City Walk / Market
+Delhi,High,Winter,Nature,9,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,9,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,9,Evening,Sunset Point
+Delhi,High,Winter,Culture,10,Morning,Historical Monument Visit
+Delhi,High,Winter,Culture,10,Afternoon,Local Food & Museum
+Delhi,High,Winter,Culture,10,Evening,City Walk / Market
+Delhi,High,Winter,Nature,10,Morning,Garden / Park Visit
+Delhi,High,Winter,Nature,10,Afternoon,Lunch & Relax
+Delhi,High,Winter,Nature,10,Evening,Sunset Point
