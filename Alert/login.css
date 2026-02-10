@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.55);
     padding: 80px 120px;
     border-radius: 24px;
     width: 1100px;
@@ -33,25 +33,24 @@ body {
     width: 40px;
     height: 40px;
     padding: 0;
-    background: #f5f5f5;
-    color: #333;
-    border: 1px solid #e0e0e0;
+    background: rgba(255, 140, 0, 0.9);
+    color: white;
+    border: none;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
 }
 
 .back-btn:hover {
-    background: #ff8c00;
-    color: white;
-    border-color: #ff8c00;
+    background: rgba(255, 107, 0, 1);
     transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(255, 140, 0, 0.6);
 }
 
 .container h2 {
@@ -197,5 +196,102 @@ button:active {
 
     .container h2 {
         font-size: 26px;
+    }
+}
+
+
+/* ===== FOOTER ===== */
+.site-footer {
+    margin-top: 60px;
+    padding: 80px 60px 30px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+    color: #222;
+}
+
+.footer-about-full {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.footer-about-full h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.footer-about-full p {
+    width: 100%;
+    max-width: 1100px;
+    line-height: 1.8;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Team Section */
+.footer-team-row h3 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Team cards */
+.team-member {
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.team-member h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.team-member p {
+    font-size: 14px;
+    margin: 6px 0;
+    color: #444;
+    line-height: 1.6;
+}
+
+.team-member a {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ff8c00;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.team-member a:hover {
+    text-decoration: underline;
+}
+
+/* Footer bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    font-size: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    color: #444;
+}
+
+@media (max-width: 900px) {
+    .team-grid {
+        grid-template-columns: 1fr;
     }
 }

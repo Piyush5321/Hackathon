@@ -3,6 +3,7 @@
 <head>
   <title>Alerts</title>
   <link rel="stylesheet" href="login.css">
+
   <style>
     html, body {
       height: 100%;
@@ -25,41 +26,68 @@
     .footer {
       margin-top: auto;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255,255,255,0.9);
       text-align: center;
       border-top: 1px solid #e5e5e5;
     }
 
-    .footer p {
-      margin: 5px 0;
+    .footer p { margin: 5px 0; }
+    .footer-title { font-size: 14px; color: #666; font-weight: 600; }
+    .footer-copy { font-size: 12px; color: #999; }
+
+    select, input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
     }
 
-    .footer-title {
-      font-size: 14px;
-      color: #666;
-      font-weight: 600;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: #999;
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      border: none;
+      background: #0d6efd;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
+
 <body>
 
 <div class="main-content">
   <div class="container">
     <button onclick="window.history.back()" class="back-btn">←</button>
-    <h2>Alerts</h2>
+    <h2>Submit Alert</h2>
 
     <form id="alertForm">
+
+      <!-- LOCATION -->
       <input type="text" id="location" placeholder="Location" required>
 
-      <textarea id="details" placeholder="Enter details..."
-      style="width:100%;padding:12px;margin-top:10px;border-radius:8px;border:1px solid #ddd;height:120px;"></textarea>
+      <!-- LANDMARK -->
+      <input type="text" id="landmark" placeholder="Nearby Landmark (optional)">
 
-      <button type="submit">Submit</button>
+      <!-- CATEGORY DROPDOWN -->
+      <select id="category" required>
+        <option value="">Select Alert Category</option>
+        <option value="Scam/Fraud">Scam / Fraud</option>
+        <option value="Safety Issue">Safety Issue</option>
+        <option value="Weather">Weather</option>
+        <option value="Overpricing">Overpricing</option>
+        <option value="Transportation">Transportation</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <!-- DETAILS -->
+      <textarea id="details" placeholder="Enter details..."
+      style="height:120px;"></textarea>
+
+      <button type="submit">Submit Alert</button>
     </form>
 
     <p id="msg"></p>

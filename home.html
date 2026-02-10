@@ -198,12 +198,12 @@
       display: flex;
       gap: 25px;
       width: max-content;
-      animation: scrollLeft 80s linear infinite;
+      animation: none;
       will-change: transform;
     }
 
-    .slider-track:hover {
-      animation-play-state: paused;
+    .slider-track.animating {
+      animation: scrollLeft 80s linear infinite;
     }
 
     /* Seamless infinite scroll animation */
@@ -231,14 +231,14 @@
       border-radius: 20px;
       overflow: visible;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       cursor: pointer;
       position: relative;
+      flex-shrink: 0;
+      transition: opacity 0.2s ease;
     }
 
     .trip-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      opacity: 0.95;
     }
 
     .trip-card.active {
@@ -307,6 +307,11 @@
       content: ' ▲';
     }
 
+    /* When card is active, change button text */
+    .trip-card.active .visit-btn::after {
+      content: ' ▲';
+    }
+
     /* ITINERARY BOX */
     .itinerary-box {
       display: none;
@@ -366,6 +371,7 @@
       flex-direction: column;
       gap: 20px;
       padding: 0 40px 40px;
+      contain: layout style paint;
     }
 
     .card {
@@ -376,6 +382,7 @@
       min-height: 160px;
       transition: transform 0.2s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      will-change: auto;
     }
 
     .card:hover {
@@ -1302,6 +1309,9 @@ Day 5:
     // Handle visit button clicks with event delegation
     const sliderTrack = document.querySelector(".slider-track");
     if (sliderTrack) {
+      // Start animation on page load
+      sliderTrack.classList.add("animating");
+
       // Use event delegation on the slider track
       sliderTrack.addEventListener("click", function (e) {
         // Check if a visit button was clicked
@@ -1326,13 +1336,12 @@ Day 5:
           
           // If card is now active, pause animation
           if (clickedCard.classList.contains("active")) {
-            sliderTrack.style.animationPlayState = 'paused';
-            // Don't scroll, just show the details
+            sliderTrack.classList.remove("animating");
           } else {
             // Resume animation if no cards are active
             const hasActiveCards = document.querySelectorAll(".trip-card.active").length > 0;
             if (!hasActiveCards) {
-              sliderTrack.style.animationPlayState = 'running';
+              sliderTrack.classList.add("animating");
             }
           }
         }
@@ -1346,7 +1355,7 @@ Day 5:
             card.classList.remove("active");
           });
           if (hadActiveCards) {
-            sliderTrack.style.animationPlayState = 'running';
+            sliderTrack.classList.add("animating");
           }
         }
       });
@@ -1357,7 +1366,16 @@ Day 5:
           e.stopPropagation();
         }
       });
+
+      // Ensure animation keeps running (safety check)
+      setInterval(() => {
+        if (!sliderTrack.classList.contains("animating") && document.querySelectorAll(".trip-card.active").length === 0) {
+          sliderTrack.classList.add("animating");
+        }
+      }, 1000);
     }
   </script>
+</body>
+</html>ipt>
 </body>
 </html>
