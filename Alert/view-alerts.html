@@ -15,7 +15,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.7), rgba(118, 75, 162, 0.7)), url('../images/bgimg.jpg') center/cover no-repeat fixed;
+      background: linear-gradient(135deg, rgba(102,126,234,0.7), rgba(118,75,162,0.7)), url('../images/bgimg.jpg') center/cover no-repeat fixed;
     }
 
     .main-content {
@@ -27,13 +27,12 @@
     }
 
     .container {
-      background: rgba(255, 255, 255, 0.55);
+      background: rgba(255,255,255,0.55);
       backdrop-filter: blur(10px);
       padding: 80px 120px;
       border-radius: 24px;
       width: 1100px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       position: relative;
     }
 
@@ -43,144 +42,79 @@
       left: 20px;
       width: 40px;
       height: 40px;
-      padding: 0;
-      background: rgba(255, 140, 0, 0.9);
+      background: rgba(255,140,0,0.9);
       color: white;
       border: none;
       border-radius: 50%;
       cursor: pointer;
       font-size: 18px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
     }
 
-    .back-btn:hover {
-      background: rgba(255, 107, 0, 1);
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(255, 140, 0, 0.6);
+    h2{
+      text-align:center;
+      font-size:36px;
+      margin-bottom:30px;
     }
 
-    h2 {
-      color: #2c3e50;
-      margin-bottom: 30px;
-      text-align: center;
-      font-size: 36px;
-      font-weight: 600;
+    input{
+      width:100%;
+      padding:20px;
+      border-radius:12px;
+      border:2px solid #ddd;
+      margin-bottom:15px;
+      font-size:16px;
     }
 
-    input {
-      width: 100%;
-      padding: 24px 28px;
-      border: 2px solid #e0e0e0;
-      border-radius: 14px;
-      font-size: 18px;
-      transition: all 0.3s ease;
-      background: rgba(250, 250, 250, 0.9);
-      margin-bottom: 20px;
-      box-sizing: border-box;
+    button{
+      width:100%;
+      padding:18px;
+      border:none;
+      border-radius:12px;
+      font-size:18px;
+      font-weight:bold;
+      cursor:pointer;
+      margin-top:10px;
     }
 
-    input:focus {
-      outline: none;
-      border-color: #ff8c00;
-      background: white;
-      box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+    .search-btn{
+      background:linear-gradient(135deg,#8e6ddf,#f18bbf);
+      color:white;
     }
 
-    input::placeholder {
-      color: #999;
+    .show-btn{
+      background:#999;
+      color:white;
     }
 
-    button {
-      width: 100%;
-      padding: 24px;
-      border: none;
-      border-radius: 14px;
-      margin-top: 15px;
-      cursor: pointer;
-      font-size: 21px;
-      font-weight: bold;
-      transition: all 0.3s ease;
+    .alert-card{
+      padding:20px;
+      margin-top:20px;
+      border-radius:14px;
+      background:rgba(255,247,237,0.9);
+      border-left:6px solid orange;
+      line-height:1.7;
     }
 
-    .search-btn {
-      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
-      color: white;
-      box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+    .high{
+      border-left:6px solid red;
+      background:rgba(255,200,200,0.7);
     }
 
-    .search-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(142, 109, 223, 0.4);
+    .weather{
+      border-left:6px solid blue;
+      background:rgba(200,220,255,0.7);
     }
 
-    .show-btn {
-      background: rgba(150, 150, 150, 0.8);
-      color: white;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    .safe{
+      border-left:6px solid green;
+      background:rgba(200,255,200,0.7);
     }
 
-    .show-btn:hover {
-      background: rgba(120, 120, 120, 0.9);
-      transform: translateY(-2px);
-    }
-
-    .alert-card {
-      padding: 20px;
-      margin-top: 20px;
-      border-radius: 14px;
-      background: rgba(255, 247, 237, 0.8);
-      backdrop-filter: blur(8px);
-      border-left: 6px solid #ff8c00;
-      font-size: 15px;
-      line-height: 1.8;
-      color: #333;
-    }
-
-    .alert-card b {
-      color: #2c3e50;
-    }
-
-    .footer {
-      margin-top: auto;
-      padding: 50px 40px 20px;
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(255, 255, 255, 0.4);
-      text-align: center;
-    }
-
-    .footer-title {
-      font-size: 14px;
-      color: #333;
-      font-weight: 600;
-    }
-
-    .footer-copy {
-      font-size: 12px;
-      color: #666;
-    }
-
-    @media (max-width: 1500px) {
-      .container {
-        width: 95%;
-        padding: 70px 100px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .container {
-        padding: 50px 40px;
-        width: 90%;
-      }
-
-      h2 {
-        font-size: 32px;
-      }
+    .footer{
+      margin-top:auto;
+      padding:40px;
+      text-align:center;
+      background:rgba(255,255,255,0.3);
     }
   </style>
 </head>
@@ -191,24 +125,21 @@
   <div class="container">
 
     <button class="back-btn" onclick="window.history.back()">←</button>
-
     <h2>All Alerts</h2>
 
-    <!-- SEARCH -->
     <input type="text" id="searchInput" placeholder="Search by location">
 
     <button class="search-btn" onclick="searchAlerts()">Search</button>
     <button class="show-btn" onclick="loadAlerts()">Show All</button>
 
-    <!-- ALERT LIST -->
     <div id="alertsList"></div>
 
   </div>
 </div>
 
 <footer class="footer">
-  <p class="footer-title"><strong>Navio</strong> - Smart Travel Planning Platform</p>
-  <p class="footer-copy">© 2026 Navio. All rights reserved.</p>
+  <p><strong>Navio</strong> - Smart Travel Planning Platform</p>
+  <p>© 2026 Navio</p>
 </footer>
 
 <script type="module">
@@ -220,57 +151,73 @@ from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 const list = document.getElementById("alertsList");
 
 
-// LOAD ALL ALERTS
-window.loadAlerts = async function () {
+// 🧠 AGENTIC AI DECISION
+function getClass(category){
+    if(category==="Scam/Fraud" || category==="Safety Issue") return "alert-card high";
+    if(category==="Weather") return "alert-card weather";
+    return "alert-card safe";
+}
 
-    const q = query(collection(db, "alerts"), orderBy("time", "desc"));
+function getMessage(category){
+    if(category==="Scam/Fraud") return "🔴 High scam risk here";
+    if(category==="Safety Issue") return "🔴 Safety warning";
+    if(category==="Weather") return "🌧 Weather warning";
+    if(category==="Overpricing") return "💰 Overpricing reported";
+    return "🟢 Area looks normal";
+}
+
+
+// LOAD ALL
+window.loadAlerts = async function(){
+
+    const q = query(collection(db,"alerts"), orderBy("time","desc"));
     const snap = await getDocs(q);
 
-    list.innerHTML = "";
+    list.innerHTML="";
 
-    snap.forEach(doc => {
+    snap.forEach(doc=>{
         const data = doc.data();
 
         list.innerHTML += `
-        <div class="alert-card">
+        <div class="${getClass(data.category)}">
             <b>📍 Location:</b> ${data.location || "-"}<br>
             <b>🏷 Landmark:</b> ${data.landmark || "-"}<br>
             <b>🚨 Category:</b> ${data.category || "-"}<br>
-            <b>📝 Details:</b> ${data.details || "-"}
+            <b>📝 Details:</b> ${data.details || "-"}<br><br>
+            <b>${getMessage(data.category)}</b>
         </div>
         `;
     });
 }
 
 
-// SEARCH ALERTS
-window.searchAlerts = async function () {
+// SEARCH
+window.searchAlerts = async function(){
 
     const text = document.getElementById("searchInput").value;
 
-    const q = query(
-        collection(db, "alerts"),
-        where("location", "==", text)
-    );
+    const q = query(collection(db,"alerts"),
+    where("location","==",text));
 
     const snap = await getDocs(q);
 
-    list.innerHTML = "";
+    list.innerHTML="";
 
-    if (snap.empty) {
-        list.innerHTML = "<div class='alert-card' style='border-left:6px solid #ff8c00;'>No alerts found</div>";
+    if(snap.empty){
+        list.innerHTML="<div class='alert-card'>No alerts found</div>";
         return;
     }
 
-    snap.forEach(doc => {
+    snap.forEach(doc=>{
         const data = doc.data();
 
         list.innerHTML += `
-        <div class="alert-card" style="border-left:6px solid #ff8c00;background:rgba(255, 200, 150, 0.7);">
-            <b>📍 Location:</b> ${data.location || "-"}<br>
-            <b>🏷 Landmark:</b> ${data.landmark || "-"}<br>
-            <b>🚨 Category:</b> ${data.category || "-"}<br>
-            <b>📝 Details:</b> ${data.details || "-"}
+        <div class="${getClass(data.category)}">
+            <b>📍 Location:</b> ${data.location}<br>
+            <b>🏷 Landmark:</b> ${data.landmark}<br>
+            <b>🚨 Category:</b> ${data.category}<br>
+            <b>📝 Details:</b> ${data.details}<br><br>
+            <b>${getMessage(data.category)}</b>
         </div>
         `;
     });
