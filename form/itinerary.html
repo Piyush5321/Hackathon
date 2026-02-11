@@ -16,7 +16,13 @@
       }
       body {
         font-family: Poppins, system-ui, Arial;
-        background: linear-gradient(135deg, rgba(106, 90, 205, 0.7), rgba(255, 140, 148, 0.7)), url('../images/bgimg.jpg') center/cover no-repeat fixed;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(106, 90, 205, 0.7),
+            rgba(255, 140, 148, 0.7)
+          ),
+          url("../images/bgimg.jpg") center/cover no-repeat fixed;
         padding: 24px;
         min-height: 100vh;
       }
@@ -63,6 +69,13 @@
         color: #8e6ddf;
         backdrop-filter: blur(10px);
       }
+      #alertBtn {
+        background: linear-gradient(135deg, #ff4757 0%, #ff6b81 100%);
+        box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+      }
+      #alertBtn:hover {
+        box-shadow: 0 6px 20px rgba(255, 71, 87, 0.6);
+      }
       .day {
         border-left: 4px solid #8e6ddf;
         background: rgba(255, 255, 255, 0.55);
@@ -100,9 +113,116 @@
       .editable {
         outline: none;
       }
+      /* ALERT MODAL */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal.show {
+        display: flex;
+      }
+
+      .modal-content {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.95),
+          rgba(240, 230, 255, 0.9)
+        );
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 500px;
+        width: 90%;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: 1px solid rgba(255, 255, 255, 0.5);
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px) scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        border-bottom: 2px solid rgba(142, 109, 223, 0.3);
+        padding-bottom: 15px;
+      }
+
+      .modal-header h2 {
+        font-size: 1.5rem;
+        color: #8e6ddf;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 28px;
+        cursor: pointer;
+        color: #8e6ddf;
+        transition: transform 0.2s;
+      }
+
+      .modal-close:hover {
+        transform: rotate(90deg);
+      }
+
+      .alert-item {
+        background: rgba(142, 109, 223, 0.1);
+        padding: 14px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        border-left: 4px solid #8e6ddf;
+        display: flex;
+        gap: 12px;
+        align-items: flex-start;
+      }
+
+      .alert-icon {
+        font-size: 20px;
+        flex-shrink: 0;
+        color: #f18bbf;
+      }
+
+      .alert-text {
+        color: #333;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .no-alerts {
+        text-align: center;
+        color: #666;
+        padding: 20px;
+      }
+
       @media print {
         .controls,
-        .btn {
+        .btn,
+        .modal {
           display: none;
         }
       }
@@ -117,12 +237,82 @@
         <button class="btn ghost" id="backBtn">Back</button>
         <button class="btn" id="printBtn">Print</button>
         <button class="btn ghost" id="exportBtn">Export JSON</button>
+        <button class="btn" id="alertBtn">⚠️ Alert</button>
       </div>
 
       <div id="itineraryList"></div>
     </div>
 
+    <!-- Alert Modal -->
+    <div id="alertModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>⚠️ Safety Alerts for <span id="alertDestination"></span></h2>
+          <button class="modal-close" id="closeModal">&times;</button>
+        </div>
+        <div id="alertList"></div>
+      </div>
+    </div>
+
     <script>
+      // Safety Alerts Database
+      const safetyAlerts = {
+        Delhi: [
+          "Avoid taxis or autos without meters near railway stations.",
+          "Avoid isolated parks after sunset.",
+          "Avoid street vendors without visible price boards in tourist areas.",
+        ],
+        Goa: [
+          "Avoid water sports booked through unofficial beach agents.",
+          "Avoid isolated beaches late at night.",
+          "Avoid accepting drinks from strangers in party areas.",
+          "Be cautious when traveling alone at night.",
+          "Keep valuables secure in crowded areas.",
+        ],
+        Mumbai: [
+          "Avoid crowded local trains during peak hours if possible.",
+          "Keep your belongings secure in busy markets.",
+          "Be cautious with street food from unregistered vendors.",
+          "Avoid isolated areas in suburbs after dark.",
+          "Don't flash expensive jewelry or electronics.",
+        ],
+        Jaipur: [
+          "Avoid unmarked auto-rickshaws, use official ones.",
+          "Be wary of unofficial tour guides.",
+          "Don't accept food or drinks from strangers.",
+          "Keep valuables in hotel safes.",
+          "Avoid traveling alone at night.",
+        ],
+        Bangalore: [
+          "Be cautious in crowded IT parks during commute hours.",
+          "Avoid isolated tech parks after dark.",
+          "Keep your smartphone secure in public transport.",
+          "Be aware of ride-sharing scams.",
+          "Avoid walking alone late at night.",
+        ],
+        Kolkata: [
+          "Avoid large gatherings during strike periods.",
+          "Keep distance from political protests.",
+          "Use registered taxis, avoid unmarked cabs.",
+          "Avoid walking alone in dimly lit areas.",
+          "Be cautious with street food hygiene.",
+        ],
+        Hyderabad: [
+          "Avoid traveling alone at night in old city areas.",
+          "Be cautious in crowded shopping districts.",
+          "Don't carry large amounts of cash.",
+          "Avoid secluded parks after sunset.",
+          "Use official transportation services.",
+        ],
+        Agra: [
+          "Avoid unofficial tour guides near tourist spots.",
+          "Don't shop at inflated prices in tourist areas.",
+          "Avoid traveling with unknown people.",
+          "Keep valuables secure at hotels.",
+          "Be cautious of 'gem trades' and tourist scams.",
+        ],
+      };
+
       function loadItinerary() {
         const raw = sessionStorage.getItem("itinerary");
         if (!raw) return null;
@@ -218,6 +408,51 @@
         a.download = "itinerary.json";
         a.click();
         URL.revokeObjectURL(url);
+      });
+
+      // Alert Button Handler
+      document.getElementById("alertBtn").addEventListener("click", () => {
+        const it = loadItinerary();
+        if (!it) return alert("No itinerary found");
+
+        const destination = it.meta.destination;
+        const alerts = safetyAlerts[destination] || [];
+        const modal = document.getElementById("alertModal");
+        const alertDestinationSpan =
+          document.getElementById("alertDestination");
+        const alertListDiv = document.getElementById("alertList");
+
+        alertDestinationSpan.textContent = destination;
+
+        if (alerts.length === 0) {
+          alertListDiv.innerHTML =
+            '<div class="no-alerts">No safety alerts available for this destination.</div>';
+        } else {
+          alertListDiv.innerHTML = alerts
+            .map(
+              (alert) => `
+              <div class="alert-item">
+                <span class="alert-icon">⚠️</span>
+                <span class="alert-text">${alert}</span>
+              </div>
+            `,
+            )
+            .join("");
+        }
+
+        modal.classList.add("show");
+      });
+
+      // Close Modal
+      document.getElementById("closeModal").addEventListener("click", () => {
+        document.getElementById("alertModal").classList.remove("show");
+      });
+
+      // Close Modal when clicking outside
+      document.getElementById("alertModal").addEventListener("click", (e) => {
+        if (e.target === document.getElementById("alertModal")) {
+          document.getElementById("alertModal").classList.remove("show");
+        }
       });
 
       render();
