@@ -7,14 +7,11 @@
     <link rel="stylesheet" href="land.css">
 </head>
 <body>
-    <!-- Logo -->
-    <div class="logo-container">
-        <img src="images/naviologo.png" alt="Navio Logo" class="logo">
-    </div>
+   
 
     <!-- Background Video -->
     <video id="bgVideo" class="bg-video" muted autoplay>
-      <source src="/images/landpage.mp4" type="video/mp4" />
+      <source src="images/0211 (2).mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
@@ -23,17 +20,19 @@
         <button class="get-started-btn">Get Started</button>
     </div>
 
+<footer>   
+     <div class="footer-bottom">
+      <p>© 2026 Navio. All rights reserved.</p>
+    </div>
+  </footer>
     <script>
-        const video = document.getElementById('bgVideo');
         const ctaButton = document.getElementById('ctaButton');
 
-        // Show button after 2 seconds
-        video.addEventListener('timeupdate', function() {
-            if (video.currentTime >= 2 && ctaButton.classList.contains('hidden')) {
-                ctaButton.classList.remove('hidden');
-                ctaButton.classList.add('show');
-            }
-        });
+        // Show button after 2.8 seconds
+        setTimeout(function() {
+            ctaButton.classList.remove('hidden');
+            ctaButton.classList.add('show');
+        }, 2800);
 
         // Add click handler for the button
         document.querySelector('.get-started-btn').addEventListener('click', function() {
