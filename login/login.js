@@ -9,7 +9,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    window.location.href = "../home.html";
+    window.location.href = "../home copy.html";
   } catch (err) {
     alert("Invalid login");
   }

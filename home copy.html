@@ -1,0 +1,2200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Navio | Home</title>
+
+  <!-- GOOGLE FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/bg1.avif') center/cover no-repeat fixed;
+      min-height: 100vh;
+      color: #333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Light Theme (Default) */
+    body.light-theme {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('images/bg1.avif') center/cover no-repeat fixed;
+      color: #333;
+    }
+
+    /* Dark Theme */
+    body.dark-theme {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/bg1.avif') center/cover no-repeat fixed;
+      color: #e0e0e0;
+    }
+
+    /* SLIDE MENU */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100vh;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(10px);
+      box-shadow: 5px 0 20px rgba(0,0,0,0.1);
+      transition: left 0.3s ease;
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .side-menu.active {
+      left: 0;
+    }
+
+    .side-menu h3 {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* Dark theme side menu */
+    body.dark-theme .side-menu {
+      background: rgba(30, 30, 30, 0.95);
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .side-menu h3 {
+      color: #e0e0e0;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 15px;
+      background: white;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .menu-item:hover {
+      background: linear-gradient(135deg, #ff8c00 0%, #ff6f00 100%);
+      color: white;
+      transform: translateX(5px);
+      box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+    }
+
+    /* Dark theme menu items */
+    body.dark-theme .menu-item {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .menu-item:hover {
+      background: linear-gradient(135deg, #ff8c00 0%, #ff6f00 100%);
+      color: white;
+    }
+
+    /* Theme buttons container */
+    .theme-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark-theme .theme-buttons {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .theme-btn {
+      flex: 1;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      background: white;
+      color: #333;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 13px;
+    }
+
+    .theme-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .theme-btn.active {
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
+      color: white;
+      border-color: #8e6ddf;
+    }
+
+    body.dark-theme .theme-btn {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    body.dark-theme .theme-btn:hover {
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+
+    body.dark-theme .theme-btn.active {
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
+      color: white;
+      border-color: #8e6ddf;
+    }
+
+    .menu-icon {
+      font-size: 20px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .navbar {
+      background: rgba(30, 30, 30, 0.8);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .menu-icon {
+      font-size: 22px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .logo {
+      color: #e0e0e0;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      background: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-theme .nav-btn {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    body.dark-theme .nav-btn:hover {
+      background: rgba(80, 80, 80, 0.9);
+    }
+
+    .user-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .user-icon {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+    }
+
+    .user-menu {
+      display: none;
+      position: absolute;
+      top: 50px;
+      right: 0;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      z-index: 100;
+      min-width: 150px;
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .user-menu {
+      background: rgba(40, 40, 40, 0.95);
+    }
+
+    .user-menu.show {
+      display: block;
+    }
+
+    .user-menu-item {
+      padding: 12px 20px;
+      font-size: 14px;
+      color: #333;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+      width: 100%;
+      text-align: left;
+      background: white;
+    }
+
+    .user-menu-item:hover {
+      background: #f5f5f5;
+    }
+
+    body.dark-theme .user-menu-item {
+      background: rgba(40, 40, 40, 0.95);
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .user-menu-item:hover {
+      background: rgba(60, 60, 60, 0.9);
+    }
+
+    .user-menu-item.logout {
+      color: #ff4444;
+      border-top: 1px solid #eee;
+    }
+
+    .user-menu-item.logout:hover {
+      background: #ffebee;
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      margin: 40px 0 30px;
+    }
+
+    .section-header h2 {
+      font-size: 32px;
+      font-weight: 600;
+      color: white;
+      text-align: center;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .section-header h2 {
+      color: #e0e0e0;
+    }
+
+    /* INFINITE SLIDER */
+    .slider-wrapper {
+      overflow: visible;
+      width: 100%;
+      margin: 30px 0;
+      padding: 20px 0;
+      position: relative;
+      display: flex;
+      gap: 20px;
+    }
+
+    .slider-track {
+      display: flex;
+      gap: 25px;
+      width: max-content;
+      animation: none;
+      will-change: transform;
+      flex: 1;
+    }
+
+    .slider-track.animating {
+      animation: scrollLeft 80s linear infinite;
+    }
+
+    /* Seamless infinite scroll animation */
+    @keyframes scrollLeft {
+      0% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(-50%);
+      }
+      50.1% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    /* DESTINATION CARD */
+    .trip-card {
+      min-width: 320px;
+      max-width: 320px;
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      overflow: visible;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    body.dark-theme .trip-card {
+      background: rgba(40, 40, 40, 0.85);
+    }
+
+    .trip-card:hover {
+      opacity: 0.95;
+    }
+
+    .trip-card.active {
+      position: relative;
+      z-index: 100;
+      min-width: auto;
+      max-width: 320px;
+      overflow: visible;
+    }
+
+    .trip-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-info {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card-info h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    .card-info p {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 15px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .card-info h3 {
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .card-info p {
+      color: #b0b0b0;
+    }
+
+    /* VISIT BUTTON - HIDDEN BY DEFAULT */
+    .visit-btn {
+      display: none;
+      width: calc(100% - 40px);
+      margin: 0 20px;
+      padding: 12px 0;
+      border: none;
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+      position: relative;
+      z-index: 10;
+    }
+
+    body.dark-theme .visit-btn {
+      background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+      box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+    }
+
+    .visit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
+    }
+
+    body.dark-theme .visit-btn:hover {
+      box-shadow: 0 6px 20px rgba(167, 139, 250, 0.6);
+    }
+
+    /* SHOW BUTTON ON CARD HOVER */
+    .trip-card:hover .visit-btn {
+      display: block;
+    }
+
+    /* When card is active, change button text */
+    .trip-card.active .visit-btn::after {
+      content: ' ▲';
+    }
+
+    /* When card is active, change button text */
+    .trip-card.active .visit-btn::after {
+      content: ' ▲';
+    }
+
+    /* Hide original itinerary box - only show in modal */
+    .itinerary-box {
+      display: none !important;
+    }
+
+    .trip-card.active .itinerary-box {
+      display: none !important;
+    }
+
+    /* MODAL OVERLAY */
+    .detail-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: auto;
+    }
+
+    .detail-modal.show {
+      display: flex !important;
+    }
+
+    /* DETAIL CONTAINER - Orange border */
+    .detail-container {
+      display: flex;
+      width: 90%;
+      max-width: 1000px;
+      height: 600px;
+      background: white;
+      border: 8px solid #ff8c00;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      animation: popUp 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      margin: auto;
+    }
+
+    @keyframes popUp {
+      from {
+        opacity: 0;
+        transform: scale(0.5) translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* IMAGE SECTION - Blue */
+    .detail-image-section {
+      flex: 0 0 45%;
+      background: #4a90e2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .detail-image-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* DETAILS SECTION - Theme-aware */
+    .detail-info-section {
+      flex: 0 0 55%;
+      background: rgba(255, 255, 255, 0.65);
+      padding: 40px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme .detail-info-section {
+      background: rgba(40, 40, 40, 0.85);
+    }
+
+    .detail-info-section h3 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 10px;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .detail-info-section h3 {
+      color: #e0e0e0;
+    }
+
+    .detail-info-section p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 25px;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .detail-info-section p {
+      color: #b0b0b0;
+    }
+
+    .detail-itinerary {
+      flex: 1;
+      overflow-y: auto;
+      background: rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .detail-itinerary {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .detail-itinerary h4 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 15px;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .detail-itinerary h4 {
+      color: #e0e0e0;
+    }
+
+    .detail-itinerary pre {
+      white-space: pre-wrap;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin: 0;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .detail-itinerary pre {
+      color: #b0b0b0;
+    }
+
+    /* CLOSE BUTTON */
+    .detail-close-btn {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      width: 45px;
+      height: 45px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      color: #ff8c00;
+      font-weight: bold;
+      z-index: 2001;
+    }
+
+    .detail-close-btn:hover {
+      background: #ff8c00;
+      color: white;
+      transform: scale(1.15);
+    }
+
+    /* Expand card height when active */
+    .trip-card.active {
+      min-height: auto;
+    }
+
+    /* Close button for active card */
+    .close-card-btn {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      z-index: 102;
+      transition: all 0.3s ease;
+    }
+
+    .trip-card.active .close-card-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .close-card-btn:hover {
+      background: rgba(0, 0, 0, 0.6);
+      transform: scale(1.1);
+    }
+
+    /* CARDS CONTAINER */
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 0 40px 40px;
+      contain: layout style paint;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 30px;
+      min-height: 160px;
+      transition: transform 0.2s ease, background 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      will-change: auto;
+    }
+
+    body.dark-theme .card {
+      background: rgba(40, 40, 40, 0.85);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .card h2 {
+      color: #e0e0e0;
+    }
+
+    .custom-card {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .custom-card {
+      background: rgba(40, 40, 40, 0.85);
+    }
+
+    .custom-card h2 {
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .custom-card h2 {
+      color: #e0e0e0;
+    }
+
+    .custom-card p {
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .custom-card p {
+      color: #b0b0b0;
+    }
+
+    .trip-tags span {
+      display: inline-block;
+      margin: 8px;
+      padding: 8px 14px;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(5px);
+      border-radius: 20px;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .trip-tags span {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+    }
+
+    .custom-card button {
+      margin-top: 25px;
+      padding: 14px 32px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+      background: linear-gradient(135deg, #8e6ddf, #f18bbf);
+      transition: all 0.3s ease;
+    }
+
+    body.dark-theme .custom-card button {
+      background: linear-gradient(135deg, #a78bfa, #f472b6);
+    }
+
+    .custom-card button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 109, 223, 0.4);
+    }
+
+    /* AUTH MODAL */
+    .auth-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .auth-modal.show {
+      display: flex;
+    }
+
+    .auth-modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .auth-modal-content {
+      background: rgba(40, 40, 40, 0.95);
+    }
+
+    .auth-modal-content h2 {
+      color: #d32f2f;
+      margin-bottom: 15px;
+      font-size: 24px;
+    }
+
+    .auth-modal-content p {
+      color: #d32f2f;
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    body.dark-theme .auth-modal-content p {
+      color: #ff6b6b;
+    }
+
+    .auth-modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .auth-modal-btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .auth-modal-btn.cancel {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .auth-modal-btn.cancel:hover {
+      background: #e0e0e0;
+    }
+
+    body.dark-theme .auth-modal-btn.cancel {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .auth-modal-btn.cancel:hover {
+      background: rgba(80, 80, 80, 0.9);
+    }
+
+    .auth-modal-btn.login {
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+    }
+
+    .auth-modal-btn.login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
+    }
+
+    body.dark-theme .auth-modal-btn.login {
+      background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+      box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+    }
+
+    body.dark-theme .auth-modal-btn.login:hover {
+      box-shadow: 0 6px 20px rgba(167, 139, 250, 0.6);
+    }
+
+    /* THEME CONFIRMATION MODAL */
+    .theme-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 3000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .theme-modal.show {
+      display: flex;
+    }
+
+    .theme-modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .theme-modal-content {
+      background: rgba(40, 40, 40, 0.95);
+    }
+
+    .theme-modal-content h2 {
+      margin-bottom: 15px;
+      font-size: 24px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .theme-modal-content h2 {
+      color: #e0e0e0;
+    }
+
+    .theme-modal-content p {
+      margin-bottom: 30px;
+      font-size: 16px;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .theme-modal-content p {
+      color: #b0b0b0;
+    }
+
+    .theme-modal-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .theme-modal-btn {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .theme-modal-btn.cancel {
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .theme-modal-btn.cancel:hover {
+      background: #e0e0e0;
+    }
+
+    body.dark-theme .theme-modal-btn.cancel {
+      background: rgba(60, 60, 60, 0.8);
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .theme-modal-btn.cancel:hover {
+      background: rgba(80, 80, 80, 0.9);
+    }
+
+    .theme-modal-btn.confirm {
+      background: linear-gradient(135deg, #8e6ddf 0%, #f18bbf 100%);
+      color: white;
+      box-shadow: 0 4px 15px rgba(142, 109, 223, 0.3);
+    }
+
+    .theme-modal-btn.confirm:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(142, 109, 223, 0.5);
+    }
+
+    body.dark-theme .theme-modal-btn.confirm {
+      background: linear-gradient(135deg, #a78bfa 0%, #f472b6 100%);
+      box-shadow: 0 4px 15px rgba(167, 139, 250, 0.4);
+    }
+
+    body.dark-theme .theme-modal-btn.confirm:hover {
+      box-shadow: 0 6px 20px rgba(167, 139, 250, 0.6);
+    }
+
+    .how-it-works {
+      background: rgba(162, 47, 112, 0.7);
+      padding: 60px 40px;
+      border-radius: 20px;
+      margin: 50px 0;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .how-it-works {
+      background: rgba(60, 30, 50, 0.8);
+    }
+
+    .how-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .how-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .how-header p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    .steps-container {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .step-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 35px 25px;
+      width: 260px;
+      position: relative;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    body.dark-theme .step-card {
+      background: rgba(40, 40, 40, 0.85);
+    }
+
+    .step-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .step-number {
+      width: 45px;
+      height: 45px;
+      background: #e449d7;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .step-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      color: #222;
+      transition: color 0.3s ease;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .step-card h3 {
+      color: #e0e0e0;
+    }
+
+    body.dark-theme .step-card p {
+      color: #b0b0b0;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      margin-top: 60px;
+      padding: 50px 40px 20px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.4);
+      color: #222;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body.dark-theme .site-footer {
+      background: rgba(30, 30, 30, 0.8);
+      color: #e0e0e0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-about-full {
+      width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .footer-about-full p {
+      width: 100%;
+      max-width: 1100px;
+      line-height: 1.8;
+      color: #333;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .footer-about-full p {
+      color: #b0b0b0;
+    }
+
+    .footer-team-row h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .footer-team-row h3 {
+      color: #e0e0e0;
+    }
+
+    .footer-team-row p {
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .footer-team-row p {
+      color: #b0b0b0;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      transition: background 0.3s ease;
+    }
+
+    body.dark-theme .team-member {
+      background: rgba(40, 40, 40, 0.85);
+    }
+
+    .team-member h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .team-member h4 {
+      color: #e0e0e0;
+    }
+
+    .team-member p {
+      font-size: 13px;
+      margin: 4px 0;
+      color: #444;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .team-member p {
+      color: #b0b0b0;
+    }
+
+    .team-member a {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #6b4eff;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .team-member a {
+      color: #a78bfa;
+    }
+
+    .team-member a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 15px;
+      font-size: 13px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      color: #444;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-theme .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #b0b0b0;
+    }
+
+    @media (max-width: 900px) {
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDE MENU -->
+  <div class="side-menu" id="sideMenu">
+    <h3>Menu</h3>
+    <div class="menu-items">
+      <a href="Alert/view-alerts.html" class="menu-item">
+        <span class="menu-icon">🔍</span>
+        <span>Search Alerts</span>
+      </a>
+      <a href="Alert/alerts-form.html" class="menu-item">
+        <span class="menu-icon">📝</span>
+        <span>Alert Form</span>
+      </a>
+    </div>
+    <div class="theme-buttons">
+      <button class="theme-btn active" id="lightThemeBtn" onclick="showThemeConfirmation('light')">☀️ Light</button>
+      <button class="theme-btn" id="darkThemeBtn" onclick="showThemeConfirmation('dark')">🌙 Dark</button>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nav-left">
+      <div class="menu-icon" onclick="toggleMenu(event)">☰</div>
+      <div class="logo">Navio</div>
+    </div>
+
+    <div class="nav-right">
+      <button class="nav-btn" onclick="checkAuthAndNavigate('form/index.html')">New Trip</button>
+      <button class="nav-btn" id="authButton" onclick="window.location.href='login/login.html'">Login / Signup</button>
+    </div>
+  </div>
+
+  <!-- RECOMMENDED TRIPS SECTION -->
+  <div class="section-header">
+    <h2>Recommended Trips</h2>
+  </div>
+
+  <div class="slider-wrapper">
+    <div class="slider-track">
+
+      <!-- Original Cards -->
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Delhi">
+        <div class="card-info">
+          <h3>Delhi</h3>
+          <p>Historic capital of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: India Gate
+  • Afternoon: Rashtrapati Bhavan area
+  • Evening: Connaught Place cafés
+  • Night: Light dinner, rest
+
+Day 2:
+  • Morning: Jama Masjid
+  • Afternoon: Chandni Chowk food walk
+  • Evening: Red Fort
+  • Night: Return early
+
+Day 3:
+  • Morning: Qutub Minar
+  • Afternoon: Humayun's Tomb
+  • Evening: Lodhi Garden sunset walk
+  • Night: Café hopping nearby
+
+Day 4:
+  • Morning: Lotus Temple
+  • Afternoon: Dilli Haat (crafts & food)
+  • Evening: Hauz Khas Village walk
+  • Night: Rooftop café / live music
+
+Day 5:
+  • Morning: Akshardham Temple
+  • Afternoon: National Museum / Gandhi Smriti
+  • Evening: Last-minute shopping
+  • Night: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4MzgyNDk5LWltYWdlLWt3dnZobnRoLmpwZw.jpg" alt="Varanasi">
+        <div class="card-info">
+          <h3>Varanasi</h3>
+          <p>Spiritual heart of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in, rest
+  • Afternoon: Walk around Ghat
+  • Evening: Ganga Aarti
+  • Night: Light dinner nearby
+
+Day 2:
+  • Morning: Kashi Vishwanath
+  • Afternoon: Annapurna Temple
+  • Evening: Manikarnika Ghat
+  • Night: Rest
+
+Day 3:
+  • Morning: Sunrise boat ride
+  • Afternoon: Tulsi Manas Mandir
+  • Evening: Assi Ghat cultural evening
+  • Night: Café near Assi
+
+Day 4:
+  • Morning: Sarnath
+  • Afternoon: Sarnath Museum
+  • Evening: Return to Varanasi
+  • Night: Leisure time
+
+Day 5:
+  • Morning: Ghat walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Goa">
+        <div class="card-info">
+          <h3>Goa</h3>
+          <p>Beaches, nightlife, and chill vibes</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Calangute Beach
+  • Evening: Baga Beach sunset
+
+Day 2:
+  • Morning: Water sports at Baga
+  • Afternoon: Lunch nearby
+  • Evening: Fort Aguada sunset views
+  • Night: Café hopping
+
+Day 3:
+  • Afternoon: Panaji city walk
+  • Evening: Miramar Beach
+  • Night: Riverfront dinner
+
+Day 4:
+  • Morning: Colva Beach
+  • Afternoon: Swimming
+  • Evening: Sunset walk
+
+Day 5:
+  • Morning: Shopping (Anjuna / Mapusa)
+  • Afternoon: Packing & checkout</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/19149607/pexels-photo-19149607/free-photo-of-the-hawa-mahal-palace-in-jaipur-india.jpeg" alt="Jaipur">
+        <div class="card-info">
+          <h3>Jaipur</h3>
+          <p>The Pink City of forts and palaces</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: City Palace
+  • Afternoon: Jantar Mantar
+  • Evening: Hawa Mahal
+  • Night: Dinner near MI Road
+
+Day 2:
+  • Morning: Amber Fort
+  • Afternoon: Panna Meena ka Kund
+  • Evening: Jaigarh Fort
+  • Night: Light stroll
+
+Day 3:
+  • Morning: Albert Hall Museum
+  • Afternoon: Birla Mandir
+  • Evening: Bapu Bazaar
+  • Night: Rooftop café
+
+Day 4:
+  • Morning: Nahargarh Fort
+  • Afternoon: Galtaji
+  • Evening: Chokhi Dhani
+  • Night: Dinner at resort
+
+Day 5:
+  • Morning: Heritage walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122/free-photo-of-view-of-a-stream-in-mountains.jpeg" alt="Manali">
+        <div class="card-info">
+          <h3>Manali</h3>
+          <p>Mountains, snow, and adventure</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Hadimba Devi Temple
+  • Evening: Old Manali walk
+
+Day 2:
+  • Morning: Solang Valley (activities)
+  • Afternoon: Lunch at Solang
+  • Evening: Return & leisure time
+  • Night: Bonfire
+
+Day 3:
+  • Morning: Rohtang Pass
+  • Afternoon: Sissu / nearby viewpoints
+  • Evening: Return to Manali
+  • Night: Rest
+
+Day 4:
+  • Morning: Vashisht Temple
+  • Afternoon: Tibetan Monastery
+  • Evening: Mall Road shopping
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Nature walk / river-side stroll
+  • Afternoon: Souvenir shopping & packing
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/5696769/pexels-photo-5696769.jpeg" alt="Ooty">
+        <div class="card-info">
+          <h3>Ooty</h3>
+          <p>Calm hill station with tea gardens</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Ooty Lake boating
+  • Evening: Lake-side walk
+
+Day 2:
+  • Morning: Government Botanical Garden
+  • Afternoon: Rose Garden
+  • Evening: Doddabetta Peak sunset
+
+Day 3:
+  • Morning: Toy Train / drive to Coonoor
+  • Afternoon: Sim's Park
+  • Evening: Dolphin's Nose & Lamb's Rock
+  • Night: Return to Ooty
+
+Day 4:
+  • Morning: Tea Factory & Museum
+  • Afternoon: Pine Forest
+  • Evening: Shooting Point
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Shopping (tea, chocolates)
+  • Afternoon: Packing & checkout
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <!-- Duplicate cards for seamless infinite loop -->
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5" alt="Delhi">
+        <div class="card-info">
+          <h3>Delhi</h3>
+          <p>Historic capital of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: India Gate
+  • Afternoon: Rashtrapati Bhavan area
+  • Evening: Connaught Place cafés
+  • Night: Light dinner, rest
+
+Day 2:
+  • Morning: Jama Masjid
+  • Afternoon: Chandni Chowk food walk
+  • Evening: Red Fort
+  • Night: Return early
+
+Day 3:
+  • Morning: Qutub Minar
+  • Afternoon: Humayun's Tomb
+  • Evening: Lodhi Garden sunset walk
+  • Night: Café hopping nearby
+
+Day 4:
+  • Morning: Lotus Temple
+  • Afternoon: Dilli Haat (crafts & food)
+  • Evening: Hauz Khas Village walk
+  • Night: Rooftop café / live music
+
+Day 5:
+  • Morning: Akshardham Temple
+  • Afternoon: National Museum / Gandhi Smriti
+  • Evening: Last-minute shopping
+  • Night: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.rawpixel.com/image_800/cHJpdmF0ZS9zdGF0aWMvaW1hZ2Uvd2Vic2l0ZS8yMDIyLTA0L2xyL3B4MzgyNDk5LWltYWdlLWt3dnZobnRoLmpwZw.jpg" alt="Varanasi">
+        <div class="card-info">
+          <h3>Varanasi</h3>
+          <p>Spiritual heart of India</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in, rest
+  • Afternoon: Walk around Ghat
+  • Evening: Ganga Aarti
+  • Night: Light dinner nearby
+
+Day 2:
+  • Morning: Kashi Vishwanath
+  • Afternoon: Annapurna Temple
+  • Evening: Manikarnika Ghat
+  • Night: Rest
+
+Day 3:
+  • Morning: Sunrise boat ride
+  • Afternoon: Tulsi Manas Mandir
+  • Evening: Assi Ghat cultural evening
+  • Night: Café near Assi
+
+Day 4:
+  • Morning: Sarnath
+  • Afternoon: Sarnath Museum
+  • Evening: Return to Varanasi
+  • Night: Leisure time
+
+Day 5:
+  • Morning: Ghat walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Goa">
+        <div class="card-info">
+          <h3>Goa</h3>
+          <p>Beaches, nightlife, and chill vibes</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Calangute Beach
+  • Evening: Baga Beach sunset
+
+Day 2:
+  • Morning: Water sports at Baga
+  • Afternoon: Lunch nearby
+  • Evening: Fort Aguada sunset views
+  • Night: Café hopping
+
+Day 3:
+  • Afternoon: Panaji city walk
+  • Evening: Miramar Beach
+  • Night: Riverfront dinner
+
+Day 4:
+  • Morning: Colva Beach
+  • Afternoon: Swimming
+  • Evening: Sunset walk
+
+Day 5:
+  • Morning: Shopping (Anjuna / Mapusa)
+  • Afternoon: Packing & checkout</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/19149607/pexels-photo-19149607/free-photo-of-the-hawa-mahal-palace-in-jaipur-india.jpeg" alt="Jaipur">
+        <div class="card-info">
+          <h3>Jaipur</h3>
+          <p>The Pink City of forts and palaces</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: City Palace
+  • Afternoon: Jantar Mantar
+  • Evening: Hawa Mahal
+  • Night: Dinner near MI Road
+
+Day 2:
+  • Morning: Amber Fort
+  • Afternoon: Panna Meena ka Kund
+  • Evening: Jaigarh Fort
+  • Night: Light stroll
+
+Day 3:
+  • Morning: Albert Hall Museum
+  • Afternoon: Birla Mandir
+  • Evening: Bapu Bazaar
+  • Night: Rooftop café
+
+Day 4:
+  • Morning: Nahargarh Fort
+  • Afternoon: Galtaji
+  • Evening: Chokhi Dhani
+  • Night: Dinner at resort
+
+Day 5:
+  • Morning: Heritage walk
+  • Afternoon: Souvenir shopping
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/15146122/pexels-photo-15146122/free-photo-of-view-of-a-stream-in-mountains.jpeg" alt="Manali">
+        <div class="card-info">
+          <h3>Manali</h3>
+          <p>Mountains, snow, and adventure</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Hadimba Devi Temple
+  • Evening: Old Manali walk
+
+Day 2:
+  • Morning: Solang Valley (activities)
+  • Afternoon: Lunch at Solang
+  • Evening: Return & leisure time
+  • Night: Bonfire
+
+Day 3:
+  • Morning: Rohtang Pass
+  • Afternoon: Sissu / nearby viewpoints
+  • Evening: Return to Manali
+  • Night: Rest
+
+Day 4:
+  • Morning: Vashisht Temple
+  • Afternoon: Tibetan Monastery
+  • Evening: Mall Road shopping
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Nature walk / river-side stroll
+  • Afternoon: Souvenir shopping & packing
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+      <div class="trip-card">
+        <img src="https://images.pexels.com/photos/5696769/pexels-photo-5696769.jpeg" alt="Ooty">
+        <div class="card-info">
+          <h3>Ooty</h3>
+          <p>Calm hill station with tea gardens</p>
+          <button class="visit-btn">Visit Here</button>
+        </div>
+        <div class="itinerary-box">
+          <h4>5-Day Itinerary</h4>
+          <pre>Day 1:
+  • Morning: Arrival, hotel check-in
+  • Afternoon: Ooty Lake boating
+  • Evening: Lake-side walk
+
+Day 2:
+  • Morning: Government Botanical Garden
+  • Afternoon: Rose Garden
+  • Evening: Doddabetta Peak sunset
+
+Day 3:
+  • Morning: Toy Train / drive to Coonoor
+  • Afternoon: Sim's Park
+  • Evening: Dolphin's Nose & Lamb's Rock
+  • Night: Return to Ooty
+
+Day 4:
+  • Morning: Tea Factory & Museum
+  • Afternoon: Pine Forest
+  • Evening: Shooting Point
+  • Night: Café hopping
+
+Day 5:
+  • Morning: Shopping (tea, chocolates)
+  • Afternoon: Packing & checkout
+  • Evening: Departure</pre>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CARDS CONTAINER -->
+  <div class="cards-container">
+
+    <!-- Customize Your Itinerary -->
+    <div class="card">
+      <h2>Customize Your Itinerary</h2>
+      <section class="custom-trip">
+        <div class="custom-card">
+          <h2>Build Your Perfect Trip ✨</h2>
+          <p>
+            Tell us your preferences and we'll create a travel plan
+            that matches your vibe, budget, and time.
+          </p>
+
+          <div class="trip-tags">
+            <span> Destination</span>
+            <span> Duration</span>
+            <span> Budget</span>
+            <span> Travel Style</span>
+          </div>
+
+          <button onclick="checkAuthAndNavigate('form/index.html')">
+            Customize My Trip
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- How It Works -->
+    <div class="card">
+      <h2>How It Works?</h2>
+      <section class="how-it-works">
+        <div class="how-header">
+          <h2>Create Your Itinerary in 4 Simple Steps</h2>
+          <p>From destination to detailed trip plan in minutes</p>
+        </div>
+
+        <div class="steps-container">
+
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Enter Your Destination</h3>
+            <p>
+              Type your travel destination. Our smart search finds cities,
+              regions, and specific locations worldwide.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Set Your Travel Dates</h3>
+            <p>
+              Select when you're traveling. The AI optimizes your itinerary
+              based on trip length and local events.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Generate with AI</h3>
+            <p>
+              Click generate and watch AI create your personalized day-by-day
+              itinerary with activities and recommendations.
+            </p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Customize & Share</h3>
+            <p>
+              Edit activities, add companions, and share your itinerary.
+              Your perfect trip is ready to go.
+            </p>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+  </div>
+
+  <!-- THEME CONFIRMATION MODAL -->
+  <div class="theme-modal" id="themeModal">
+    <div class="theme-modal-content">
+      <h2 id="themeModalTitle">Switch to Light Theme?</h2>
+      <p id="themeModalMessage">Are you sure you want to switch to light theme?</p>
+      <div class="theme-modal-buttons">
+        <button class="theme-modal-btn cancel" onclick="closeThemeModal()">Cancel</button>
+        <button class="theme-modal-btn confirm" onclick="applyTheme()">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div class="detail-modal" id="detailModal">
+    <div class="detail-container">
+      <button class="detail-close-btn" onclick="closeDetailModal()">×</button>
+      <div class="detail-image-section">
+        <img id="detailImage" src="" alt="Destination">
+      </div>
+      <div class="detail-info-section">
+        <h3 id="detailTitle">Destination</h3>
+        <p id="detailDesc">Description</p>
+        <div class="detail-itinerary">
+          <h4>5-Day Itinerary</h4>
+          <pre id="detailItinerary">Itinerary details...</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH MODAL -->
+  <div class="auth-modal" id="authModal">
+    <div class="auth-modal-content">
+      <h2>Login Required</h2>
+      <p>You have to log in to access this feature</p>
+      <div class="auth-modal-buttons">
+        <button class="auth-modal-btn cancel" onclick="closeAuthModal()">Cancel</button>
+        <button class="auth-modal-btn login" onclick="window.location.href='login/login.html'">Log In</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-about-full">
+        <h3>About Navio</h3>
+        <p>
+          Navio is a smart travel-planning platform designed to simplify how people explore new destinations. It helps users create personalized itineraries based on their preferences such as destination, travel duration, budget, and travel style. With a focus on clarity and real-time planning, Navio aims to make trip planning faster, more intuitive, and stress-free by turning user inputs into structured, easy-to-follow travel plans.
+        </p>
+      </div>
+
+      <div class="footer-team-row">
+        <h3>Developed By</h3>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <h4>Mukund Keshwani</h4>
+            <p>Email: mukund.haresh@bcah.christuniversity.in</p>
+            <p>Contact: +91 9359888264</p>
+            <a href="https://www.linkedin.com/in/mukund-keshwani-315148378/" target="_blank">LinkedIn</a>
+          </div>
+
+          <div class="team-member">
+            <h4>Simran Singh</h4>
+            <p>Email: simran.singh@bcah.christuniversity.in</p>
+            <p>Contact: +91 9798380631</p>
+            <a href="https://www.linkedin.com/in/simran-singh-ab9524350/" target="_blank">LinkedIn</a>
+          </div>
+
+          <div class="team-member">
+            <h4>Piyush Sinha</h4>
+            <p>Email: piyush.sinha@bcah.christuniversity.in</p>
+            <p>Contact: +91 7759040065</p>
+            <a href="https://www.linkedin.com/in/piyush-sinha-91702a378/" target="_blank">LinkedIn</a>
+          </div>
+        </div>
+        <br>
+        <h3>About Us</h3>
+        <p>
+          We are The Closing Tags, a team of first-year BCA students from Christ University who are passionate about learning and building through real-world experiences. We actively participate in hackathons and tech events to apply our classroom knowledge to practical problems, improve our skills, and work collaboratively under real constraints. Our focus is on creating clean, user-friendly, and meaningful solutions while continuously growing as developers through hands-on projects and innovation-driven learning.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Navio. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script type="module">
+    import { auth } from "./login/firebase.js";
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Authentication check function
+    window.checkAuthAndNavigate = function(url) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.href = url;
+        } else {
+          document.getElementById("authModal").classList.add("show");
+        }
+      });
+    };
+
+    // Close auth modal
+    window.closeAuthModal = function() {
+      document.getElementById("authModal").classList.remove("show");
+    };
+
+    // Close modal when clicking outside
+    document.getElementById("authModal").addEventListener("click", function(e) {
+      if (e.target === this) {
+        this.classList.remove("show");
+      }
+    });
+
+    // Logout function
+    async function handleLogout() {
+      try {
+        await signOut(auth);
+        alert("Logged out successfully!");
+        window.location.reload();
+      } catch (error) {
+        alert("Error logging out: " + error.message);
+      }
+    }
+
+    // Toggle user menu
+    function toggleUserMenu(e) {
+      e.stopPropagation();
+      const userMenu = document.querySelector(".user-menu");
+      if (userMenu) {
+        userMenu.classList.toggle("show");
+      }
+    }
+
+    // Check authentication state
+    onAuthStateChanged(auth, (user) => {
+      const authButton = document.getElementById("authButton");
+      
+      if (user) {
+        authButton.innerHTML = `
+          👤
+          <div class="user-menu">
+            <div class="user-menu-item">Logged in as:<br><strong>${user.email}</strong></div>
+            <button class="user-menu-item logout" id="logoutBtn">Logout</button>
+          </div>
+        `;
+        authButton.className = 'user-icon';
+        authButton.onclick = toggleUserMenu;
+        
+        setTimeout(() => {
+          document.getElementById("logoutBtn").addEventListener("click", handleLogout);
+        }, 0);
+      } else {
+        authButton.innerHTML = 'Login / Signup';
+        authButton.className = 'nav-btn';
+        authButton.onclick = () => window.location.href = 'login/login.html';
+      }
+    });
+
+    // Close user menu when clicking outside
+    document.addEventListener("click", function(e) {
+      const userMenu = document.querySelector(".user-menu");
+      const userIcon = document.querySelector(".user-icon");
+      
+      if (userMenu && !userIcon?.contains(e.target)) {
+        userMenu.classList.remove("show");
+      }
+    });
+
+    // Toggle side menu
+    function toggleMenu(e) {
+      e.stopPropagation();
+      document.getElementById("sideMenu").classList.toggle("active");
+    }
+    
+    window.toggleMenu = toggleMenu;
+
+    // Close menu when clicking outside
+    document.addEventListener("click", function(e) {
+      const sideMenu = document.getElementById("sideMenu");
+      const menuButton = document.querySelector(".navbar .menu-icon");
+      
+      if (!sideMenu.contains(e.target) && e.target !== menuButton) {
+        sideMenu.classList.remove("active");
+      }
+    });
+
+    // Prevent menu from closing when clicking inside it
+    document.getElementById("sideMenu").addEventListener("click", function(e) {
+      e.stopPropagation();
+    });
+
+    // THEME SWITCHING FUNCTIONALITY
+    let pendingTheme = null;
+
+    // Initialize theme on page load
+    function initializeTheme() {
+      const savedTheme = localStorage.getItem('theme') || 'light-theme';
+      document.body.classList.add(savedTheme);
+      updateThemeButtons(savedTheme);
+    }
+
+    // Show detail modal
+    window.showDetailModal = function(imgSrc, title, desc, itinerary) {
+      const modal = document.getElementById("detailModal");
+      document.getElementById("detailImage").src = imgSrc;
+      document.getElementById("detailTitle").textContent = title;
+      document.getElementById("detailDesc").textContent = desc;
+      document.getElementById("detailItinerary").textContent = itinerary;
+      modal.classList.add("show");
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+    };
+
+    // Close detail modal
+    window.closeDetailModal = function() {
+      const modal = document.getElementById("detailModal");
+      modal.classList.remove("show");
+      document.body.style.overflow = "auto"; // Re-enable scrolling
+      // Resume animation
+      const sliderTrack = document.querySelector(".slider-track");
+      if (sliderTrack) {
+        sliderTrack.classList.add("animating");
+      }
+    };
+
+    // Show theme confirmation modal
+    window.showThemeConfirmation = function(theme) {
+      pendingTheme = theme;
+      const themeModal = document.getElementById('themeModal');
+      const title = document.getElementById('themeModalTitle');
+      const message = document.getElementById('themeModalMessage');
+
+      if (theme === 'light') {
+        title.textContent = 'Switch to Light Theme?';
+        message.textContent = 'Are you sure you want to switch to light theme? Light background with dark text.';
+      } else {
+        title.textContent = 'Switch to Dark Theme?';
+        message.textContent = 'Are you sure you want to switch to dark theme? Dark background with light text.';
+      }
+
+      themeModal.classList.add('show');
+    };
+
+    // Close theme modal
+    window.closeThemeModal = function() {
+      document.getElementById('themeModal').classList.remove('show');
+      pendingTheme = null;
+    };
+
+    // Apply the selected theme
+    window.applyTheme = function() {
+      if (!pendingTheme) return;
+
+      const themeClass = pendingTheme === 'light' ? 'light-theme' : 'dark-theme';
+      
+      // Remove both theme classes
+      document.body.classList.remove('light-theme', 'dark-theme');
+      
+      // Add the new theme class
+      document.body.classList.add(themeClass);
+      
+      // Save to localStorage
+      localStorage.setItem('theme', themeClass);
+      
+      // Update button states
+      updateThemeButtons(themeClass);
+      
+      // Close modal
+      closeThemeModal();
+    };
+
+    // Update theme button states
+    function updateThemeButtons(currentTheme) {
+      const lightBtn = document.getElementById('lightThemeBtn');
+      const darkBtn = document.getElementById('darkThemeBtn');
+
+      if (currentTheme === 'light-theme') {
+        lightBtn.classList.add('active');
+        darkBtn.classList.remove('active');
+      } else {
+        lightBtn.classList.remove('active');
+        darkBtn.classList.add('active');
+      }
+    }
+
+    // Close theme modal when clicking outside
+    document.getElementById('themeModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeThemeModal();
+      }
+    });
+
+    // Initialize theme on page load
+    initializeTheme();
+
+    // Handle visit button clicks with event delegation
+    const sliderTrack = document.querySelector(".slider-track");
+    if (sliderTrack) {
+      // Start animation on page load
+      sliderTrack.classList.add("animating");
+
+      // Pause animation on hover over cards
+      const cards = document.querySelectorAll(".trip-card");
+      cards.forEach(card => {
+        card.addEventListener("mouseenter", function() {
+          sliderTrack.classList.remove("animating");
+        });
+
+        card.addEventListener("mouseleave", function() {
+          // Only resume if modal is not open
+          const detailModal = document.getElementById("detailModal");
+          if (!detailModal || !detailModal.classList.contains("show")) {
+            sliderTrack.classList.add("animating");
+          }
+        });
+      });
+
+      // Use event delegation on the slider track
+      sliderTrack.addEventListener("click", function (e) {
+        // Check if a visit button was clicked
+        if (e.target.classList.contains("visit-btn") || e.target.closest(".visit-btn")) {
+          e.stopPropagation();
+          e.preventDefault();
+
+          const visitBtn = e.target.classList.contains("visit-btn") ? e.target : e.target.closest(".visit-btn");
+          const clickedCard = visitBtn.closest(".trip-card");
+
+          if (!clickedCard) return;
+
+          // Get card data
+          const cardImg = clickedCard.querySelector("img").src;
+          const cardTitle = clickedCard.querySelector(".card-info h3").textContent;
+          const cardDesc = clickedCard.querySelector(".card-info p").textContent;
+          const itineraryElement = clickedCard.querySelector(".itinerary-box pre");
+          const itineraryText = itineraryElement ? itineraryElement.textContent : "No itinerary available";
+
+          // Show the modal with card data
+          showDetailModal(cardImg, cardTitle, cardDesc, itineraryText);
+
+          // Pause animation
+          sliderTrack.classList.remove("animating");
+        }
+      });
+
+      // Close modal when clicking outside the container
+      const detailModal = document.getElementById("detailModal");
+      if (detailModal) {
+        detailModal.addEventListener("click", function(e) {
+          if (e.target === this) {
+            closeDetailModal();
+          }
+        });
+      }
+
+      // Also close on Escape key
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+          const modal = document.getElementById("detailModal");
+          if (modal && modal.classList.contains("show")) {
+            closeDetailModal();
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

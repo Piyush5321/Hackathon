@@ -20,7 +20,7 @@ document.getElementById("signupForm").addEventListener("submit", async (e) => {
         });
 
         alert("Signup successful");
-        window.location.href = "login.html";
+        window.location.href = "../home copy.html";
 
     } catch (err) {
         alert(err.message);

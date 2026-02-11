@@ -27,10 +27,10 @@ body {
 
 /* Get Started Button */
 .cta-container {
-    position: absolute;
-    top: 72%;
+    position: fixed;
+    bottom: 100px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 5;
     opacity: 0;
     transition: opacity 0.5s ease-in;
